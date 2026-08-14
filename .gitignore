@@ -4,6 +4,7 @@ node_modules/
 .electron-cache/
 dist/
 apps/desktop/out/
+apps/desktop/release/
 champselect-capture.json
 collect/output/raw/
 *.log

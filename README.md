@@ -2,6 +2,14 @@
 
 海克斯大乱斗辅助助手（Windows）。选人界面展示英雄套路、海克斯推荐、装备推荐、对局技巧；游戏内热键唤出置顶浮窗查阅。开源、免费、纯静态参考信息工具。
 
+## 直接下载（推荐）
+
+不需要安装 Node/pnpm，下载安装包即可使用：
+
+- **最新版**：https://github.com/StateMnet/choosehextech/releases/latest
+- 下载 `ChooseHextech-Setup-*.exe` 安装，运行后自动连接英雄联盟客户端。
+- 游戏内浮窗热键：`Ctrl+Shift+H`（默认）。
+
 ## 当前状态
 
 - M0 数据奠基 ✅：仓库骨架、数据格式、校验/打包管线、单测全部跑通（data/ 内为 10 个热门英雄的**占位样例数据**，正式数据待接入）。
@@ -37,11 +45,18 @@
 
     pnpm --filter @choosehextech/desktop dev     # 开发模式（HMR + 重启）
     pnpm --filter @choosehextech/desktop build   # 构建 out/ 产物
+    pnpm --filter @choosehextech/desktop dist    # 构建 + 打包 Windows 安装包（release/）
 
 本机没有 pnpm 时，Windows 可直接用仓库内快捷脚本（无需安装任何东西）：
 
     dev-desktop.cmd      # 桌面端开发模式
     build-desktop.cmd    # 桌面端构建
+
+打包发布（首次需联网下载打包工具，国内网络若超时请先开启代理再执行）：
+
+    pnpm --filter @choosehextech/desktop dist
+
+产物在 apps/desktop/release/ 下，将 ChooseHextech-Setup-*.exe 上传到 GitHub Releases 即可发布。
 
 或一次性安装 pnpm 到 PATH：终端执行 corepack enable（Node 22 自带 Corepack），重开终端后即可使用 pnpm。
 
@@ -62,7 +77,7 @@
 - packages/data-core — 数据解析、校验、schema、打包（纯 TS，无 Electron 依赖）
 - packages/lcu-client — 英雄联盟客户端 API（lockfile + 日志 + 进程命令行三通道发现）
 - packages/game-session — 对局状态机（纯 TS，可单测）
-- apps/desktop — Electron 桌面端（面板 + 托盘）
+- apps/desktop — Electron 桌面端（面板 + 托盘；build/ 为打包用应用图标，release/ 为本地打包产物不入库）
 - scripts/ — 数据管线（validate / build-data / gen-all-champions）
 - scripts/dev/ — 联调工具（inspect-lcu / probe-lcu / watch-champselect / gen-tray-icon）
 - docs/ — 设计文档（DESIGN.md）

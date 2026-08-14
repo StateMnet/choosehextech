@@ -1,13 +1,14 @@
 {
   "name": "@choosehextech/desktop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "main": "./out/main/index.js",
   "description": "ChooseHextech 桌面端（Electron + React）：选人面板",
   "scripts": {
     "dev": "electron-vite dev",
-    "build": "electron-vite build"
+    "build": "electron-vite build",
+    "dist": "electron-vite build && electron-builder --win"
   },
   "dependencies": {
     "@choosehextech/data-core": "workspace:*",
@@ -20,9 +21,49 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "electron": "^33.2.0",
+    "electron-builder": "^26.15.3",
     "electron-vite": "^2.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "com.choosehextech.desktop",
+    "productName": "ChooseHextech",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "resources/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../../dist",
+        "to": "dist",
+        "filter": [
+          "manifest.json",
+          "data-*.json"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ChooseHextech",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    }
   }
 }
