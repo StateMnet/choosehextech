@@ -1,0 +1,3462 @@
+[
+  {
+    "rank": 1,
+    "championId": "67",
+    "championName": "暗夜猎手 薇恩",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "2010",
+        "name": "双发快射"
+      },
+      {
+        "id": "1220",
+        "name": "连拨击锤"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "championId": "104",
+    "championName": "法外狂徒 格雷福斯",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1134",
+        "name": "亮出你的剑"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1077",
+        "name": "灵魂虹吸"
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "championId": "875",
+    "championName": "腕豪 瑟提",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 4,
+    "championId": "51",
+    "championName": "皮城女警 凯特琳",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "championId": "223",
+    "championName": "河流之王 塔姆",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 6,
+    "championId": "17",
+    "championName": "迅捷斥候 提莫",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "2087",
+        "name": "大法师"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 7,
+    "championId": "63",
+    "championName": "复仇焰魂 布兰德",
+    "tier": "T1",
+    "augments": [
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      }
+    ]
+  },
+  {
+    "rank": 8,
+    "championId": "157",
+    "championName": "疾风剑豪 亚索",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      }
+    ]
+  },
+  {
+    "rank": 9,
+    "championId": "222",
+    "championName": "暴走萝莉 金克丝",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 10,
+    "championId": "25",
+    "championName": "堕落天使 莫甘娜",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 11,
+    "championId": "876",
+    "championName": "含羞蓓蕾 莉莉娅",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 12,
+    "championId": "804",
+    "championName": "不破之誓 芸阿娜",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      }
+    ]
+  },
+  {
+    "rank": 13,
+    "championId": "21",
+    "championName": "赏金猎人 厄运小姐",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1415",
+        "name": "双生火焰"
+      }
+    ]
+  },
+  {
+    "rank": 14,
+    "championId": "236",
+    "championName": "圣枪游侠 卢锡安",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      }
+    ]
+  },
+  {
+    "rank": 15,
+    "championId": "136",
+    "championName": "铸星龙王 奥瑞利安·索尔",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      }
+    ]
+  },
+  {
+    "rank": 16,
+    "championId": "14",
+    "championName": "亡灵战神 赛恩",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 17,
+    "championId": "4",
+    "championName": "卡牌大师 崔斯特",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 18,
+    "championId": "147",
+    "championName": "星籁歌姬 萨勒芬妮",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 19,
+    "championId": "141",
+    "championName": "影流之镰 凯隐",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      }
+    ]
+  },
+  {
+    "rank": 20,
+    "championId": "13",
+    "championName": "符文法师 瑞兹",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1311",
+        "name": "溢流"
+      },
+      {
+        "id": "1056",
+        "name": "由心及物"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 21,
+    "championId": "36",
+    "championName": "祖安狂人 蒙多医生",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 22,
+    "championId": "901",
+    "championName": "炽炎雏龙 斯莫德",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      },
+      {
+        "id": "1415",
+        "name": "双生火焰"
+      }
+    ]
+  },
+  {
+    "rank": 23,
+    "championId": "10",
+    "championName": "正义天使 凯尔",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      },
+      {
+        "id": "1129",
+        "name": "神射法师"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 24,
+    "championId": "893",
+    "championName": "双界灵兔 阿萝拉",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 25,
+    "championId": "777",
+    "championName": "封魔剑魂 永恩",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 26,
+    "championId": "18",
+    "championName": "麦林炮手 崔丝塔娜",
+    "tier": "T2",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      }
+    ]
+  },
+  {
+    "rank": 27,
+    "championId": "526",
+    "championName": "镕铁少女 芮尔",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 28,
+    "championId": "202",
+    "championName": "戏命师 烬",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1195",
+        "name": "巨人杀手"
+      }
+    ]
+  },
+  {
+    "rank": 29,
+    "championId": "11",
+    "championName": "无极剑圣 易",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      }
+    ]
+  },
+  {
+    "rank": 30,
+    "championId": "12",
+    "championName": "牛头酋长 阿利斯塔",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 31,
+    "championId": "90",
+    "championName": "虚空先知 玛尔扎哈",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 32,
+    "championId": "5",
+    "championName": "德邦总管 赵信",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1996",
+        "name": "升级：耀光"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 33,
+    "championId": "98",
+    "championName": "暮光之眼 慎",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      }
+    ]
+  },
+  {
+    "rank": 34,
+    "championId": "498",
+    "championName": "逆羽 霞",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 35,
+    "championId": "134",
+    "championName": "暗黑元首 辛德拉",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 36,
+    "championId": "245",
+    "championName": "时间刺客 艾克",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 37,
+    "championId": "910",
+    "championName": "异画师 彗",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 38,
+    "championId": "120",
+    "championName": "战争之影 赫卡里姆",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      },
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      }
+    ]
+  },
+  {
+    "rank": 39,
+    "championId": "57",
+    "championName": "扭曲树精 茂凯",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 40,
+    "championId": "111",
+    "championName": "深海泰坦 诺提勒斯",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 41,
+    "championId": "110",
+    "championName": "惩戒之箭 韦鲁斯",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 42,
+    "championId": "145",
+    "championName": "虚空之女 卡莎",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "2009",
+        "name": "狂热者"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 43,
+    "championId": "105",
+    "championName": "潮汐海灵 菲兹",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "1129",
+        "name": "神射法师"
+      }
+    ]
+  },
+  {
+    "rank": 44,
+    "championId": "420",
+    "championName": "海兽祭司 俄洛伊",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 45,
+    "championId": "103",
+    "championName": "九尾妖狐 阿狸",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 46,
+    "championId": "45",
+    "championName": "邪恶小法师 维迦",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 47,
+    "championId": "42",
+    "championName": "英勇投弹手 库奇",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      },
+      {
+        "id": "1134",
+        "name": "亮出你的剑"
+      }
+    ]
+  },
+  {
+    "rank": 48,
+    "championId": "112",
+    "championName": "奥术先驱 维克托",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 49,
+    "championId": "523",
+    "championName": "残月之肃 厄斐琉斯",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1077",
+        "name": "灵魂虹吸"
+      }
+    ]
+  },
+  {
+    "rank": 50,
+    "championId": "26",
+    "championName": "时光守护者 基兰",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "2087",
+        "name": "大法师"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2018",
+        "name": "纯粹主义者 - 术师"
+      }
+    ]
+  },
+  {
+    "rank": 51,
+    "championId": "81",
+    "championName": "探险家 伊泽瑞尔",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1415",
+        "name": "双生火焰"
+      }
+    ]
+  },
+  {
+    "rank": 52,
+    "championId": "161",
+    "championName": "虚空之眼 维克兹",
+    "tier": "T3",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 53,
+    "championId": "3",
+    "championName": "正义巨像 加里奥",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 54,
+    "championId": "48",
+    "championName": "巨魔之王 特朗德尔",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "2129",
+        "name": "地形专家"
+      },
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 55,
+    "championId": "30",
+    "championName": "死亡颂唱者 卡尔萨斯",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2018",
+        "name": "纯粹主义者 - 术师"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 56,
+    "championId": "29",
+    "championName": "瘟疫之源 图奇",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      },
+      {
+        "id": "1328",
+        "name": "暴击律动"
+      }
+    ]
+  },
+  {
+    "rank": 57,
+    "championId": "360",
+    "championName": "沙漠玫瑰 莎弥拉",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1077",
+        "name": "灵魂虹吸"
+      },
+      {
+        "id": "1134",
+        "name": "亮出你的剑"
+      }
+    ]
+  },
+  {
+    "rank": 58,
+    "championId": "887",
+    "championName": "灵罗娃娃 格温",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1129",
+        "name": "神射法师"
+      },
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      }
+    ]
+  },
+  {
+    "rank": 59,
+    "championId": "59",
+    "championName": "德玛西亚皇子 嘉文四世",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 60,
+    "championId": "54",
+    "championName": "熔岩巨兽 墨菲特",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 61,
+    "championId": "235",
+    "championName": "涤魂圣枪 赛娜",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      },
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      }
+    ]
+  },
+  {
+    "rank": 62,
+    "championId": "27",
+    "championName": "炼金术士 辛吉德",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      },
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      }
+    ]
+  },
+  {
+    "rank": 63,
+    "championId": "113",
+    "championName": "北地之怒 瑟庄妮",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 64,
+    "championId": "24",
+    "championName": "武器大师 贾克斯",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1996",
+        "name": "升级：耀光"
+      },
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 65,
+    "championId": "68",
+    "championName": "机械公敌 兰博",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1318",
+        "name": "升级：中娅"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      }
+    ]
+  },
+  {
+    "rank": 66,
+    "championId": "114",
+    "championName": "无双剑姬 菲奥娜",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 67,
+    "championId": "15",
+    "championName": "战争女神 希维尔",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 68,
+    "championId": "50",
+    "championName": "诺克萨斯统领 斯维因",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 69,
+    "championId": "101",
+    "championName": "远古巫灵 泽拉斯",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 70,
+    "championId": "37",
+    "championName": "琴瑟仙女 娑娜",
+    "tier": "T4",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      }
+    ]
+  },
+  {
+    "rank": 71,
+    "championId": "89",
+    "championName": "曙光女神 蕾欧娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 72,
+    "championId": "16",
+    "championName": "众星之子 索拉卡",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      },
+      {
+        "id": "1005",
+        "name": "喂呜喂呜"
+      }
+    ]
+  },
+  {
+    "rank": 73,
+    "championId": "800",
+    "championName": "流光镜影 梅尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 74,
+    "championId": "41",
+    "championName": "海洋之灾 普朗克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      },
+      {
+        "id": "2087",
+        "name": "大法师"
+      }
+    ]
+  },
+  {
+    "rank": 75,
+    "championId": "31",
+    "championName": "虚空恐惧 科加斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 76,
+    "championId": "55",
+    "championName": "不祥之刃 卡特琳娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "1211",
+        "name": "杀戮时间到了"
+      },
+      {
+        "id": "1112",
+        "name": "终极不可阻挡"
+      }
+    ]
+  },
+  {
+    "rank": 77,
+    "championId": "350",
+    "championName": "魔法猫咪 悠米",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1141",
+        "name": "全心为你"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1037",
+        "name": "急救用具"
+      }
+    ]
+  },
+  {
+    "rank": 78,
+    "championId": "99",
+    "championName": "光辉女郎 拉克丝",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 79,
+    "championId": "75",
+    "championName": "沙漠死神 内瑟斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      }
+    ]
+  },
+  {
+    "rank": 80,
+    "championId": "102",
+    "championName": "龙血武姬 希瓦娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "2128",
+        "name": "炽燃利息"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 81,
+    "championId": "517",
+    "championName": "解脱者 塞拉斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1129",
+        "name": "神射法师"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      }
+    ]
+  },
+  {
+    "rank": 82,
+    "championId": "119",
+    "championName": "荣耀行刑官 德莱文",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1077",
+        "name": "灵魂虹吸"
+      }
+    ]
+  },
+  {
+    "rank": 83,
+    "championId": "238",
+    "championName": "影流之主 劫",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1084",
+        "name": "穿针引线"
+      },
+      {
+        "id": "1211",
+        "name": "杀戮时间到了"
+      }
+    ]
+  },
+  {
+    "rank": 84,
+    "championId": "516",
+    "championName": "山隐之焰 奥恩",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 85,
+    "championId": "82",
+    "championName": "铁铠冥魂 莫德凯撒",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      }
+    ]
+  },
+  {
+    "rank": 86,
+    "championId": "86",
+    "championName": "德玛西亚之力 盖伦",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      }
+    ]
+  },
+  {
+    "rank": 87,
+    "championId": "96",
+    "championName": "深渊巨口 克格莫",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      },
+      {
+        "id": "1328",
+        "name": "暴击律动"
+      }
+    ]
+  },
+  {
+    "rank": 88,
+    "championId": "143",
+    "championName": "荆棘之兴 婕拉",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      }
+    ]
+  },
+  {
+    "rank": 89,
+    "championId": "8",
+    "championName": "猩红收割者 弗拉基米尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "2018",
+        "name": "纯粹主义者 - 术师"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 90,
+    "championId": "40",
+    "championName": "风暴之怒 迦娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      }
+    ]
+  },
+  {
+    "rank": 91,
+    "championId": "166",
+    "championName": "影哨 阿克尚",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      }
+    ]
+  },
+  {
+    "rank": 92,
+    "championId": "799",
+    "championName": "铁血狼母 安蓓萨",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      }
+    ]
+  },
+  {
+    "rank": 93,
+    "championId": "115",
+    "championName": "爆破鬼才 吉格斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1415",
+        "name": "双生火焰"
+      }
+    ]
+  },
+  {
+    "rank": 94,
+    "championId": "74",
+    "championName": "大发明家 黑默丁格",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1044",
+        "name": "冰寒"
+      }
+    ]
+  },
+  {
+    "rank": 95,
+    "championId": "35",
+    "championName": "恶魔小丑 萨科",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1388",
+        "name": "无限循环往复"
+      }
+    ]
+  },
+  {
+    "rank": 96,
+    "championId": "78",
+    "championName": "圣锤之毅 波比",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 97,
+    "championId": "9",
+    "championName": "远古恐惧 费德提克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1318",
+        "name": "升级：中娅"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 98,
+    "championId": "200",
+    "championName": "虚空女皇 卑尔维斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      },
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      }
+    ]
+  },
+  {
+    "rank": 99,
+    "championId": "888",
+    "championName": "炼金男爵 烈娜塔 · 戈拉斯克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "2133",
+        "name": "仁慈打击"
+      },
+      {
+        "id": "1301",
+        "name": "神圣干预"
+      }
+    ]
+  },
+  {
+    "rank": 100,
+    "championId": "32",
+    "championName": "殇之木乃伊 阿木木",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 101,
+    "championId": "126",
+    "championName": "未来守护者 杰斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 102,
+    "championId": "106",
+    "championName": "不灭狂雷 沃利贝尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 103,
+    "championId": "904",
+    "championName": "不落魔锋 亚恒",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      }
+    ]
+  },
+  {
+    "rank": 104,
+    "championId": "38",
+    "championName": "虚空行者 卡萨丁",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1056",
+        "name": "由心及物"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 105,
+    "championId": "902",
+    "championName": "明烛 米利欧",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      }
+    ]
+  },
+  {
+    "rank": 106,
+    "championId": "23",
+    "championName": "蛮族之王 泰达米尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      }
+    ]
+  },
+  {
+    "rank": 107,
+    "championId": "53",
+    "championName": "蒸汽机器人 布里茨",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1375",
+        "name": "吞噬灵魂"
+      },
+      {
+        "id": "2087",
+        "name": "大法师"
+      },
+      {
+        "id": "2018",
+        "name": "纯粹主义者 - 术师"
+      }
+    ]
+  },
+  {
+    "rank": 108,
+    "championId": "43",
+    "championName": "天启者 卡尔玛",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      }
+    ]
+  },
+  {
+    "rank": 109,
+    "championId": "267",
+    "championName": "唤潮鲛姬 娜美",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      }
+    ]
+  },
+  {
+    "rank": 110,
+    "championId": "76",
+    "championName": "狂野女猎手 奈德丽",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1048",
+        "name": "珠光护手"
+      },
+      {
+        "id": "1113",
+        "name": "老练狙神"
+      },
+      {
+        "id": "1097",
+        "name": "巫师式思考"
+      }
+    ]
+  },
+  {
+    "rank": 111,
+    "championId": "122",
+    "championName": "诺克萨斯之手 德莱厄斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      },
+      {
+        "id": "2128",
+        "name": "炽燃利息"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 112,
+    "championId": "77",
+    "championName": "兽灵行者 乌迪尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2128",
+        "name": "炽燃利息"
+      },
+      {
+        "id": "1211",
+        "name": "杀戮时间到了"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 113,
+    "championId": "61",
+    "championName": "发条魔灵 奥莉安娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 114,
+    "championId": "234",
+    "championName": "破败之王 佛耶戈",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      }
+    ]
+  },
+  {
+    "rank": 115,
+    "championId": "62",
+    "championName": "齐天大圣 孙悟空",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      }
+    ]
+  },
+  {
+    "rank": 116,
+    "championId": "203",
+    "championName": "永猎双子 千珏",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      }
+    ]
+  },
+  {
+    "rank": 117,
+    "championId": "117",
+    "championName": "仙灵女巫 璐璐",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      }
+    ]
+  },
+  {
+    "rank": 118,
+    "championId": "711",
+    "championName": "愁云使者 薇古丝",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 119,
+    "championId": "233",
+    "championName": "狂厄蔷薇 贝蕾亚",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1058",
+        "name": "秘术冲拳"
+      },
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      }
+    ]
+  },
+  {
+    "rank": 120,
+    "championId": "412",
+    "championName": "魂锁典狱长 锤石",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      }
+    ]
+  },
+  {
+    "rank": 121,
+    "championId": "150",
+    "championName": "迷失之牙 纳尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 122,
+    "championId": "133",
+    "championName": "德玛西亚之翼 奎因",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      }
+    ]
+  },
+  {
+    "rank": 123,
+    "championId": "429",
+    "championName": "复仇之矛 卡莉丝塔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      },
+      {
+        "id": "1225",
+        "name": "双刀流"
+      },
+      {
+        "id": "1328",
+        "name": "暴击律动"
+      }
+    ]
+  },
+  {
+    "rank": 124,
+    "championId": "555",
+    "championName": "血港鬼影 派克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "1326",
+        "name": "夜狩"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      }
+    ]
+  },
+  {
+    "rank": 125,
+    "championId": "79",
+    "championName": "酒桶 古拉加斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      }
+    ]
+  },
+  {
+    "rank": 126,
+    "championId": "221",
+    "championName": "祖安花火 泽丽",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1081",
+        "name": "踢踏舞"
+      },
+      {
+        "id": "1328",
+        "name": "暴击律动"
+      }
+    ]
+  },
+  {
+    "rank": 127,
+    "championId": "1",
+    "championName": "黑暗之女 安妮",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 128,
+    "championId": "427",
+    "championName": "翠神 艾翁",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1037",
+        "name": "急救用具"
+      },
+      {
+        "id": "1141",
+        "name": "全心为你"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      }
+    ]
+  },
+  {
+    "rank": 129,
+    "championId": "266",
+    "championName": "暗裔剑魔 亚托克斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      }
+    ]
+  },
+  {
+    "rank": 130,
+    "championId": "44",
+    "championName": "瓦洛兰之盾 塔里克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "1037",
+        "name": "急救用具"
+      }
+    ]
+  },
+  {
+    "rank": 131,
+    "championId": "268",
+    "championName": "沙漠皇帝 阿兹尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1129",
+        "name": "神射法师"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1022",
+        "name": "灵巧"
+      }
+    ]
+  },
+  {
+    "rank": 132,
+    "championId": "80",
+    "championName": "不屈之枪 潘森",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1007",
+        "name": "大力"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 133,
+    "championId": "163",
+    "championName": "岩雀 塔莉垭",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 134,
+    "championId": "34",
+    "championName": "冰晶凤凰 艾尼维亚",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1044",
+        "name": "冰寒"
+      },
+      {
+        "id": "1194",
+        "name": "精怪魔法"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 135,
+    "championId": "91",
+    "championName": "刀锋之影 泰隆",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      },
+      {
+        "id": "1084",
+        "name": "穿针引线"
+      }
+    ]
+  },
+  {
+    "rank": 136,
+    "championId": "72",
+    "championName": "上古领主 斯卡纳",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 137,
+    "championId": "254",
+    "championName": "皮城执法官 蔚",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 138,
+    "championId": "64",
+    "championName": "盲僧 李青",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1084",
+        "name": "穿针引线"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      }
+    ]
+  },
+  {
+    "rank": 139,
+    "championId": "56",
+    "championName": "永恒梦魇 魔腾",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1320",
+        "name": "升级：收集者"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 140,
+    "championId": "6",
+    "championName": "无畏战车 厄加特",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1081",
+        "name": "踢踏舞"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "1071",
+        "name": "更万用的瞄准镜"
+      }
+    ]
+  },
+  {
+    "rank": 141,
+    "championId": "121",
+    "championName": "虚空掠夺者 卡兹克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1084",
+        "name": "穿针引线"
+      },
+      {
+        "id": "1320",
+        "name": "升级：收集者"
+      }
+    ]
+  },
+  {
+    "rank": 142,
+    "championId": "33",
+    "championName": "披甲龙龟 拉莫斯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      }
+    ]
+  },
+  {
+    "rank": 143,
+    "championId": "107",
+    "championName": "傲之追猎者 雷恩加尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2042",
+        "name": "藏身草丛"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      }
+    ]
+  },
+  {
+    "rank": 144,
+    "championId": "127",
+    "championName": "冰霜女巫 丽桑卓",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1318",
+        "name": "升级：中娅"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 145,
+    "championId": "201",
+    "championName": "弗雷尔卓德之心 布隆",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 146,
+    "championId": "69",
+    "championName": "魔蛇之拥 卡西奥佩娅",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1045",
+        "name": "炼狱导管"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      }
+    ]
+  },
+  {
+    "rank": 147,
+    "championId": "22",
+    "championName": "寒冰射手 艾希",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1356",
+        "name": "暴击飞弹"
+      },
+      {
+        "id": "2103",
+        "name": "狙神飞星"
+      },
+      {
+        "id": "2010",
+        "name": "双发快射"
+      }
+    ]
+  },
+  {
+    "rank": 148,
+    "championId": "92",
+    "championName": "放逐之刃 锐雯",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      }
+    ]
+  },
+  {
+    "rank": 149,
+    "championId": "131",
+    "championName": "皎月女神 黛安娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 150,
+    "championId": "518",
+    "championName": "万花通灵 妮蔻",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "1318",
+        "name": "升级：中娅"
+      }
+    ]
+  },
+  {
+    "rank": 151,
+    "championId": "895",
+    "championName": "不羁之悦 尼菈",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1336",
+        "name": "升级：无尽之刃"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      }
+    ]
+  },
+  {
+    "rank": 152,
+    "championId": "19",
+    "championName": "祖安怒兽 沃里克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 153,
+    "championId": "950",
+    "championName": "百裂冥犬 纳亚菲利",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1084",
+        "name": "穿针引线"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 154,
+    "championId": "142",
+    "championName": "暮光星灵 佐伊",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "1133",
+        "name": "魔法飞弹"
+      },
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      }
+    ]
+  },
+  {
+    "rank": 155,
+    "championId": "246",
+    "championName": "元素女皇 奇亚娜",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      }
+    ]
+  },
+  {
+    "rank": 156,
+    "championId": "154",
+    "championName": "生化魔人 扎克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 157,
+    "championId": "20",
+    "championName": "雪原双子 努努和威朗普",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "2006",
+        "name": "飞身踢"
+      },
+      {
+        "id": "1041",
+        "name": "歌利亚巨人"
+      }
+    ]
+  },
+  {
+    "rank": 158,
+    "championId": "805",
+    "championName": "灰烬驱魔人 洛克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 159,
+    "championId": "7",
+    "championName": "诡术妖姬 乐芙兰",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      }
+    ]
+  },
+  {
+    "rank": 160,
+    "championId": "497",
+    "championName": "幻翎 洛",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      },
+      {
+        "id": "1013",
+        "name": "星界躯体"
+      }
+    ]
+  },
+  {
+    "rank": 161,
+    "championId": "240",
+    "championName": "暴怒骑士 克烈",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      }
+    ]
+  },
+  {
+    "rank": 162,
+    "championId": "85",
+    "championName": "狂暴之心 凯南",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1318",
+        "name": "升级：中娅"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      }
+    ]
+  },
+  {
+    "rank": 163,
+    "championId": "60",
+    "championName": "蜘蛛女皇 伊莉丝",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "1129",
+        "name": "神射法师"
+      },
+      {
+        "id": "1030",
+        "name": "尤里卡"
+      }
+    ]
+  },
+  {
+    "rank": 164,
+    "championId": "897",
+    "championName": "纳祖芒荣耀 奎桑提",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1353",
+        "name": "坦克引擎"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "1152",
+        "name": "钢化你心"
+      }
+    ]
+  },
+  {
+    "rank": 165,
+    "championId": "421",
+    "championName": "虚空遁地兽 雷克塞",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1020",
+        "name": "黎明使者的坚决"
+      }
+    ]
+  },
+  {
+    "rank": 166,
+    "championId": "58",
+    "championName": "荒漠屠夫 雷克顿",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1214",
+        "name": "旋转至胜"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 167,
+    "championId": "2",
+    "championName": "狂战士 奥拉夫",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1322",
+        "name": "罪恶快感"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      },
+      {
+        "id": "1344",
+        "name": "最终形态"
+      }
+    ]
+  },
+  {
+    "rank": 168,
+    "championId": "28",
+    "championName": "痛苦之拥 伊芙琳",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2132",
+        "name": "术士果汁盒"
+      },
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1390",
+        "name": "超凡邪恶"
+      }
+    ]
+  },
+  {
+    "rank": 169,
+    "championId": "84",
+    "championName": "离群之刺 阿卡丽",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2083",
+        "name": "牙仙子"
+      },
+      {
+        "id": "1073",
+        "name": "暗影疾奔"
+      },
+      {
+        "id": "1019",
+        "name": "全凭身法"
+      }
+    ]
+  },
+  {
+    "rank": 170,
+    "championId": "39",
+    "championName": "刀锋舞者 艾瑞莉娅",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1063",
+        "name": "狂徒豪气"
+      },
+      {
+        "id": "1996",
+        "name": "升级：耀光"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 171,
+    "championId": "83",
+    "championName": "牧魂人 约里克",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "1029",
+        "name": "虚幻武器"
+      },
+      {
+        "id": "1181",
+        "name": "重量级打击手"
+      },
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      }
+    ]
+  },
+  {
+    "rank": 172,
+    "championId": "164",
+    "championName": "青钢影 卡蜜尔",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2091",
+        "name": "无尽大杀四方"
+      },
+      {
+        "id": "1007",
+        "name": "大力"
+      },
+      {
+        "id": "1138",
+        "name": "渴血"
+      }
+    ]
+  },
+  {
+    "rank": 173,
+    "championId": "432",
+    "championName": "星界游神 巴德",
+    "tier": "T5",
+    "augments": [
+      {
+        "id": "2133",
+        "name": "仁慈打击"
+      },
+      {
+        "id": "1420",
+        "name": "咏叹奏鸣"
+      },
+      {
+        "id": "1037",
+        "name": "急救用具"
+      }
+    ]
+  }
+]

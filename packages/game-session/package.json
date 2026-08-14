@@ -1,0 +1,9 @@
+{
+  "name": "@choosehextech/game-session",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "description": "对局状态机（纯 TS，可单测）：gameflow-phase、champ-select session、重roll/bench 交换"
+}

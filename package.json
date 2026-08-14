@@ -1,0 +1,23 @@
+{
+  "name": "choosehextech",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "description": "海克斯大乱斗辅助助手：选人面板 + 游戏内浮窗（静态攻略参考工具）",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "validate": "node --experimental-strip-types scripts/validate.ts",
+    "build:data": "node --experimental-strip-types scripts/build-data.ts",
+    "inspect": "node --experimental-strip-types scripts/dev/inspect-lcu.ts",
+    "test": "node --experimental-strip-types tests/run-all.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/ws": "^8.18.0",
+    "typescript": "^5.7.2",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@choosehextech/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "main": "./out/main/index.js",
+  "description": "ChooseHextech 桌面端（Electron + React）：选人面板",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build"
+  },
+  "dependencies": {
+    "@choosehextech/data-core": "workspace:*",
+    "@choosehextech/game-session": "workspace:*",
+    "@choosehextech/lcu-client": "workspace:*",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.0",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.11"
+  }
+}

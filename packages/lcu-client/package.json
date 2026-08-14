@@ -1,0 +1,15 @@
+{
+  "name": "@choosehextech/lcu-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "description": "英雄联盟客户端（LCU）API 客户端：lockfile 发现、REST、WAMP 订阅",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.0"
+  }
+}

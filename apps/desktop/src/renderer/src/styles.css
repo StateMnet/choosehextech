@@ -1,0 +1,423 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  background: #0f1220;
+  color: #e6e9f2;
+  font-size: 13px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px 12px;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* 左上：连接状态（召唤师名 + 状态点） */
+.conn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.conn-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.conn-dot.online {
+  background: #4bd0a1;
+  box-shadow: 0 0 6px rgba(75, 208, 161, 0.8);
+  animation: conn-pulse 2s ease-in-out infinite;
+}
+
+.conn-dot.offline {
+  background: #e05a5a;
+  box-shadow: 0 0 4px rgba(224, 90, 90, 0.6);
+}
+
+@keyframes conn-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.conn-name {
+  font-weight: 600;
+  color: #e6e9f2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* 右上：详细状态（阶段 + 队列/英雄） */
+.status-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  min-width: 0;
+}
+
+.phase {
+  font-weight: 600;
+  color: #8fa3c8;
+}
+
+.status-sub {
+  font-size: 11px;
+  color: #6b7a99;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.phase-ChampSelect {
+  color: #4fd1a5;
+}
+
+.phase-InProgress {
+  color: #6ea8ff;
+}
+
+.hint {
+  background: #16213a;
+  border: 1px solid #27406e;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #9fc0ff;
+}
+
+.quick-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px 6px;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.quick-champ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.quick-champ img {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #32456e;
+  background: #141a30;
+}
+
+.quick-champ span {
+  font-size: 11px;
+  color: #8fa3c8;
+}
+
+.quick-champ.group-me img {
+  border-color: #ffd76e;
+}
+
+.quick-champ.group-team img {
+  border-color: #4bd0a1;
+}
+
+.quick-champ.group-bench img {
+  border-color: #6ea8ff;
+}
+
+.search-row {
+  position: relative;
+}
+
+.search-row input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #2a3552;
+  background: #141a30;
+  color: #e6e9f2;
+  outline: none;
+}
+
+.search-row input:focus {
+  border-color: #4a6fae;
+}
+
+.search-row .clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #8fa3c8;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #2a3552;
+  border-radius: 8px;
+  background: #141a30;
+}
+
+.search-results li {
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-results li:hover {
+  background: #1e2a4a;
+}
+
+.empty {
+  color: #6b7a99;
+  text-align: center;
+  padding: 32px 12px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.champion-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.champion-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #32456e;
+  background: #141a30;
+  flex-shrink: 0;
+}
+
+.champion-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.champion-id {
+  color: #6b7a99;
+}
+
+.build-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tab {
+  border: 1px solid #2a3552;
+  background: #141a30;
+  color: #c3cde3;
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #27406e;
+  border-color: #4a6fae;
+  color: #ffffff;
+}
+
+.build-hint {
+  color: #6b7a99;
+  font-size: 11px;
+}
+
+.build-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.build-name {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #ffd76e;
+}
+
+.card {
+  background: #141a30;
+  border: 1px solid #2a3552;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #9fc0ff;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chips li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #1e2a4a;
+  border: 1px solid #32456e;
+  border-radius: 999px;
+  padding: 3px 10px 3px 5px;
+  color: #ffd76e;
+}
+
+.chip-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.items li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.item-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  background: #141a30;
+}
+
+.tips {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.9;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  color: #5c6a89;
+  font-size: 11px;
+}
+
+/* ===== 游戏内浮窗（与面板同构 + 左侧开关按钮，决策 #18） ===== */
+
+.overlay-shell {
+  position: relative;
+  height: 100vh;
+}
+
+.app.overlay-variant {
+  border-radius: 12px;
+  border: 1px solid #2a3552;
+  overflow: hidden;
+}
+
+.overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.overlay-drag {
+  -webkit-app-region: drag;
+  color: #8fa3c8;
+  font-size: 12px;
+  padding: 4px 6px;
+  user-select: none;
+}
+
+.overlay-btn {
+  background: #1e2a4a;
+  border: 1px solid #32456e;
+  color: #c3cde3;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.overlay-btn:hover {
+  background: #27406e;
+}
+
+.overlay-collapsed {
+  width: 100%;
+  height: 100vh;
+  background: rgba(15, 18, 32, 0.95);
+  border: 1px solid #4a6fae;
+  border-radius: 0 10px 10px 0;
+  color: #ffd76e;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  writing-mode: vertical-rl;
+  letter-spacing: 2px;
+}

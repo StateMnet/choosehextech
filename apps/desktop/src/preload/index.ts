@@ -1,0 +1,37 @@
+import { contextBridge, ipcRenderer, type IpcRendererEvent } from 'electron';
+import type { DataBundle } from '@choosehextech/data-core';
+import type { SessionState } from '@choosehextech/game-session';
+
+function onChannel<T>(channel: string, callback: (payload: T) => void): () => void {
+  const listener = (_event: IpcRendererEvent, payload: T) => callback(payload);
+  ipcRenderer.on(channel, listener);
+  return () => {
+    ipcRenderer.removeListener(channel, listener);
+  };
+}
+
+const api = {
+  onSessionState(callback: (state: SessionState | null) => void): () => void {
+    return onChannel('session-state', callback);
+  },
+  getBundle(): Promise<DataBundle | null> {
+    return ipcRenderer.invoke('bundle:get') as Promise<DataBundle | null>;
+  },
+  getState(): Promise<SessionState | null> {
+    return ipcRenderer.invoke('state:get') as Promise<SessionState | null>;
+  },
+  // ---- 浮窗专用通道 ----
+  setOverlayInteractive(enabled: boolean): void {
+    ipcRenderer.send('overlay:set-interactive', enabled);
+  },
+  setOverlayMode(mode: 'collapsed' | 'expanded'): void {
+    ipcRenderer.send('overlay:set-mode', mode);
+  },
+  onResetOverlayMode(callback: () => void): () => void {
+    return onChannel('overlay:reset-mode', callback);
+  },
+};
+
+contextBridge.exposeInMainWorld('choosehextech', api);
+
+export type ChooseHextechApi = typeof api;

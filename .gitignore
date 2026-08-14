@@ -1,0 +1,10 @@
+node_modules/
+.pnpm-store/
+.corepack/
+.electron-cache/
+dist/
+apps/desktop/out/
+champselect-capture.json
+collect/output/raw/
+*.log
+.DS_Store

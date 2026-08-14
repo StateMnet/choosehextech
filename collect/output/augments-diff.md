@@ -1,0 +1,162 @@
+# 强化清单差异报告
+
+- ARAMGG：205 个（有中文名/稀有度/描述）
+- CDragon 官方池：266 个路径
+- 匹配成功：165
+- ARAMGG 有但匹配不到 CDragon：40
+- CDragon 有但 ARAMGG 未收录：109
+
+## ARAMGG 有但匹配不到 CDragon 的条目
+
+- 泰坦的坚决（棱彩，图标 iamthejuggernaut_large）
+- 面包和黄油（黄金，图标 genericabilityaugmenticon_gold）
+- 面包和果酱（黄金，图标 genericabilityaugmenticon_gold）
+- 面包和奶酪（黄金，图标 genericabilityaugmenticon_gold）
+- 神圣干预（黄金，图标 slowactingpainkillers_large）
+- 火狐（白银，图标 firfox_large）
+- 至高天诺言（棱彩，图标 empyreampromise_large）
+- 不祥契约（棱彩，图标 wisdomofages_large）
+- 终极唤醒（棱彩，图标 zerohour_large）
+- 超凡邪恶（黄金，图标 aram_phenomenalevil_large）
+- 杀意翻涌（白银，图标 killsecure_large）
+- 魄罗蛮冲（棱彩，图标 questporocharge_large）
+- 三重射击（棱彩，图标 genericabilityaugmenticon_prismatic）
+- 多重射击（棱彩，图标 genericabilityaugmenticon_prismatic）
+- 回响施放（棱彩，图标 genericabilityaugmenticon_prismatic）
+- 位面转移（棱彩，图标 whenthedarknesscomes_large）
+- 快步（黄金，图标 genericabilityaugmenticon_gold）
+- 惊惧（黄金，图标 desecrator_large）
+- 咒语裂变（棱彩，图标 genericabilityaugmenticon_prismatic）
+- 虹吸（白银，图标 genericabilityaugmenticon_silver）
+- 保持坚定（白银，图标 genericabilityaugmenticon_silver）
+- 贪欲束缚（黄金，图标 upgradehubris_large）
+- 连锁反应（黄金，图标 genericabilityaugmenticon_gold）
+- 我们的治疗（黄金，图标 equillibrium_large）
+- 牙仙子（黄金，图标 questburstingteeth_large）
+- 哎哟，我的硬币！（黄金，图标 youchmycoins_large）
+- 无尽大杀四方（黄金，图标 endlessdecimate_large）
+- 小小的额外帮助（黄金，图标 genericabilityaugmenticon_gold）
+- 急速之追求（黄金，图标 genericabilityaugmenticon_gold）
+- 高压锅（黄金，图标 questpressurecooker_large）
+- 狙神飞星（黄金，图标 questbangbang_large）
+- 大招工具人（棱彩，图标 skipthebasic_large）
+- 超负荷（棱彩，图标 genericabilityaugmenticon_prismatic）
+- 前进时间到（白银，图标 genericabilityaugmenticon_silver）
+- 炽燃利息（黄金，图标 bloodmoney2_large）
+- 地形专家（黄金，图标 lightningstrikes_large）
+- 仁慈打击（黄金，图标 genericabilityaugmenticon_gold）
+- 可靠武器（白银，图标 genericabilityaugmenticon_silver）
+- 自适应防护（白银，图标 genericabilityaugmenticon_silver）
+- 加固护盾（白银，图标 genericabilityaugmenticon_silver）
+
+## CDragon 有但 ARAMGG 未收录的路径（可能未实装/禁用/占位）
+
+- `Maps/ModeSpecificData/Augments/ARAM_Archmage`
+- `Maps/ModeSpecificData/Augments/ARAM_BangBang`
+- `Maps/ModeSpecificData/Augments/ARAM_BreadAndButter`
+- `Maps/ModeSpecificData/Augments/ARAM_BreadAndCheese`
+- `Maps/ModeSpecificData/Augments/ARAM_BreadAndJam`
+- `Maps/ModeSpecificData/Augments/ARAM_ClownCollege`
+- `Maps/ModeSpecificData/Augments/ARAM_CrackOpenThatEgg`
+- `Maps/ModeSpecificData/Augments/ARAM_DivineDomain`
+- `Maps/ModeSpecificData/Augments/ARAM_DivineIntervention`
+- `Maps/ModeSpecificData/Augments/ARAM_EndlessHunt`
+- `Maps/ModeSpecificData/Augments/ARAM_Firefox`
+- `Maps/ModeSpecificData/Augments/ARAM_ImTheJuggernaut`
+- `Maps/ModeSpecificData/Augments/ARAM_InfernoTriggered`
+- `Maps/ModeSpecificData/Augments/ARAM_LittleDevil`
+- `Maps/ModeSpecificData/Augments/ARAM_MissingPingAugment`
+- `Maps/ModeSpecificData/Augments/ARAM_Multishot`
+- `Maps/ModeSpecificData/Augments/ARAM_Perseverance`
+- `Maps/ModeSpecificData/Augments/ARAM_PhenomenalEvil`
+- `Maps/ModeSpecificData/Augments/ARAM_PoroKing`
+- `Maps/ModeSpecificData/Augments/ARAM_Poro_Blast`
+- `Maps/ModeSpecificData/Augments/ARAM_QuantumComputing`
+- `Maps/ModeSpecificData/Augments/ARAM_Quickstep`
+- `Maps/ModeSpecificData/Augments/ARAM_SpecializedRecursion`
+- `Maps/ModeSpecificData/Augments/ARAM_SpeedDemon`
+- `Maps/ModeSpecificData/Augments/ARAM_SustainingStrike`
+- `Maps/ModeSpecificData/Augments/ARAM_Terror`
+- `Maps/ModeSpecificData/Augments/ARAM_WeightedPopoffs`
+- `Maps/ModeSpecificData/Augments/ARAM_YowchMyCoins`
+- `Maps/ModeSpecificData/Augments/Ability_SelfAOE_DoubleCast`
+- `Maps/ModeSpecificData/Augments/Adamant`
+- `Maps/ModeSpecificData/Augments/BabyKitty`
+- `Maps/ModeSpecificData/Augments/BigDragonEnergy`
+- `Maps/ModeSpecificData/Augments/BloodMoneyBurn`
+- `Maps/ModeSpecificData/Augments/BurstingTeeth`
+- `Maps/ModeSpecificData/Augments/ChainReaction`
+- `Maps/ModeSpecificData/Augments/ChromaFlux`
+- `Maps/ModeSpecificData/Augments/CombinationFriedRice`
+- `Maps/ModeSpecificData/Augments/DarkWind`
+- `Maps/ModeSpecificData/Augments/DemonicClasp`
+- `Maps/ModeSpecificData/Augments/DimensionShift_Active`
+- `Maps/ModeSpecificData/Augments/DipDiveDodge`
+- `Maps/ModeSpecificData/Augments/DoOrDie`
+- `Maps/ModeSpecificData/Augments/DontStopCleavin`
+- `Maps/ModeSpecificData/Augments/DoransBiggestFan`
+- `Maps/ModeSpecificData/Augments/DoubleDefense`
+- `Maps/ModeSpecificData/Augments/DoubleStrike`
+- `Maps/ModeSpecificData/Augments/DrinkUp`
+- `Maps/ModeSpecificData/Augments/Dropybara_Active`
+- `Maps/ModeSpecificData/Augments/DustToDiamonds`
+- `Maps/ModeSpecificData/Augments/EmpyreanPromise`
+- `Maps/ModeSpecificData/Augments/EndlessDecimation`
+- `Maps/ModeSpecificData/Augments/Equilibrium`
+- `Maps/ModeSpecificData/Augments/FutureSightHeartsteel`
+- `Maps/ModeSpecificData/Augments/GrandmasChiliOil`
+- `Maps/ModeSpecificData/Augments/HasteMakesWaste`
+- `Maps/ModeSpecificData/Augments/HexCore`
+- `Maps/ModeSpecificData/Augments/HextechSoul`
+- `Maps/ModeSpecificData/Augments/ItsGoTime`
+- `Maps/ModeSpecificData/Augments/KeepGoing`
+- `Maps/ModeSpecificData/Augments/KillSecured`
+- `Maps/ModeSpecificData/Augments/LaserHeal`
+- `Maps/ModeSpecificData/Augments/LittleExtraHelp`
+- `Maps/ModeSpecificData/Augments/Mercy`
+- `Maps/ModeSpecificData/Augments/MercysStrike`
+- `Maps/ModeSpecificData/Augments/Missile_Split`
+- `Maps/ModeSpecificData/Augments/OminousPact`
+- `Maps/ModeSpecificData/Augments/Overkill`
+- `Maps/ModeSpecificData/Augments/Overloaded`
+- `Maps/ModeSpecificData/Augments/PoroCharge_Active`
+- `Maps/ModeSpecificData/Augments/PressureCooker`
+- `Maps/ModeSpecificData/Augments/Quest_Sneakerhead`
+- `Maps/ModeSpecificData/Augments/Quest_VoidImmolation`
+- `Maps/ModeSpecificData/Augments/RagsToRiches`
+- `Maps/ModeSpecificData/Augments/RiceAndChicken`
+- `Maps/ModeSpecificData/Augments/RiceAndFish`
+- `Maps/ModeSpecificData/Augments/RiceAndPork`
+- `Maps/ModeSpecificData/Augments/Scavenger`
+- `Maps/ModeSpecificData/Augments/SkipTheBasics`
+- `Maps/ModeSpecificData/Augments/SnapBack`
+- `Maps/ModeSpecificData/Augments/SnowballRoulette`
+- `Maps/ModeSpecificData/Augments/SnowballUpgrade`
+- `Maps/ModeSpecificData/Augments/SpecializedEmpowerment`
+- `Maps/ModeSpecificData/Augments/SpellVolley`
+- `Maps/ModeSpecificData/Augments/Spellcraft`
+- `Maps/ModeSpecificData/Augments/SpiritOfTheJungleMain`
+- `Maps/ModeSpecificData/Augments/StabbyStabby`
+- `Maps/ModeSpecificData/Augments/SummonersSafari`
+- `Maps/ModeSpecificData/Augments/SupportMain`
+- `Maps/ModeSpecificData/Augments/Terraind`
+- `Maps/ModeSpecificData/Augments/TitansPulse`
+- `Maps/ModeSpecificData/Augments/TrainOfTheDead`
+- `Maps/ModeSpecificData/Augments/TransmuteSilver`
+- `Maps/ModeSpecificData/Augments/TrashToTreasure`
+- `Maps/ModeSpecificData/Augments/TrueEternity`
+- `Maps/ModeSpecificData/Augments/TrustyWeapon`
+- `Maps/ModeSpecificData/Augments/UltimateAwakening`
+- `Maps/ModeSpecificData/Augments/UnstableTransmutation`
+- `Maps/ModeSpecificData/Augments/Upgrade_DeathFireGrasp`
+- `Maps/ModeSpecificData/Augments/Upgrade_InnervatingLocket`
+- `Maps/ModeSpecificData/Augments/Upgrade_Ravenous`
+- `Maps/ModeSpecificData/Augments/Upgrade_SunderedSky`
+- `Maps/ModeSpecificData/Augments/Upgrade_SwordOfBlossom`
+- `Maps/ModeSpecificData/Augments/Upgrade_ZzRotPortal`
+- `Maps/ModeSpecificData/Augments/Vampirism`
+- `Maps/ModeSpecificData/Augments/VeilOfWarding`
+- `Maps/ModeSpecificData/Augments/VoidDash`
+- `Maps/ModeSpecificData/Augments/WardingWeapon`
+- `Maps/ModeSpecificData/Augments/WildFire`
+- `Maps/ModeSpecificData/Augments/WindBeneathBlade`

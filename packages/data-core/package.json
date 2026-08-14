@@ -1,0 +1,12 @@
+{
+  "name": "@choosehextech/data-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "description": "ChooseHextech 数据核心：TSV 解析、校验、schema、打包（纯 TS，无 Electron 依赖）",
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
