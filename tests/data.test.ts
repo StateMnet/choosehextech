@@ -47,13 +47,13 @@ function check(name: string, fn: () => void) {
   }
 }
 
-check('占位数据全量通过严格校验', () => {
+check('真实数据全量通过严格校验', () => {
   const { aliases, itemNames, augmentNames } = loadRealTables();
   const { rows, warnings } = parseTsv(readFileSync(join(dataDir, 'champions.tsv'), 'utf8'));
   const result = validateRows(rows, { aliases, itemNames, augmentNames, strictNames: true });
   assert.equal(result.ok, true, JSON.stringify(result.issues));
   assert.ok(new Set(rows.map((row) => row.champion)).size >= 100, '英雄数应覆盖全量');
-  assert.equal(rows.filter((row) => row.champion === '希维尔').length, 3);
+  assert.equal(rows.filter((row) => row.champion === '希维尔').length, 4);
   assert.equal(warnings.length, 0);
 });
 
@@ -139,8 +139,8 @@ check('打包产物结构与 zod 校验一致', () => {
   const sivir = parsed.champions.find((champion) => champion.championId === 'Sivir');
   assert.ok(sivir);
   assert.equal(sivir.numericId, 15);
-  assert.equal(sivir.builds.length, 3);
-  // 占位数据已被社区采集的真实数据替换（collect/ 采集管线）
+  // 系统常规套路 1 条 + userjson 社区套路 3 条
+  assert.equal(sivir.builds.length, 4);
   assert.ok(sivir.builds.every((build) => !build.name.startsWith('示例-') && !build.name.includes('占位')));
   assert.equal(sivir.builds[0]?.updatedPatch, '26.16');
 });

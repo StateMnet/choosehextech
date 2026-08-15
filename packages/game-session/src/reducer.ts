@@ -100,14 +100,20 @@ export function applyChampSelect(prev: SessionState, dto: ChampSelectSessionDto 
   };
 }
 
-export function applyLobby(prev: SessionState, lobby: LobbyDto, targetQueueIds: number[] | null): SessionState {
-  const queueId = lobby?.gameConfig?.queueId ?? null;
-  if (queueId === null) return prev;
-  return {
-    ...prev,
-    queueId,
-    isTargetMode: targetQueueIds === null || targetQueueIds.includes(queueId),
-  };
+/**
+ * 应用 lobby 数据（队列信息）。dto 为 null（不在房间/主界面）时清空队列。
+ * queueId 0/null/undefined/字符串统一归一：>0 的数字才视为有效队列，否则 queueId=null（不在房间）；
+ * isTargetMode 在房间内按目标队列列表同步重算，换房间/离开房间都会更新；
+ * 不在房间时保留原标记（避免主界面误标，进房间后自然重算）。
+ */
+export function applyLobby(prev: SessionState, lobby: LobbyDto | null, targetQueueIds: number[] | null): SessionState {
+  const rawQueueId = lobby?.gameConfig?.queueId;
+  const numQueueId = typeof rawQueueId === 'number' ? rawQueueId : Number(rawQueueId);
+  const queueId = Number.isFinite(numQueueId) && numQueueId > 0 ? numQueueId : null;
+  const isTargetMode =
+    queueId === null ? prev.isTargetMode : targetQueueIds === null || targetQueueIds.includes(queueId);
+  if (queueId === prev.queueId && isTargetMode === prev.isTargetMode) return prev;
+  return { ...prev, queueId, isTargetMode };
 }
 
 /** 应用 current-summoner 数据（召唤师名字）。dto 为 null（客户端退出）时清空。 */

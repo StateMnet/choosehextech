@@ -1,3 +1,4 @@
+# 海克斯强化名 → 图标 URL（爬取结果直接粘贴；同名强化共用一张图；缺失回退占位图）
 强化名,图标URL
 哎哟，我的硬币！,https://cdn.dtodo.cn/hextech/augment-icons/youchmycoins_large.png
 艾卡西亚的陷落,https://cdn.dtodo.cn/hextech/augment-icons/quest_voidimmolation_large.png
@@ -69,6 +70,7 @@
 加固护盾,https://cdn.dtodo.cn/hextech/augment-icons/genericabilityaugmenticon_silver.png
 家园卫士,https://cdn.dtodo.cn/hextech/augment-icons/homeguard_large.png
 尖端发明家,https://cdn.dtodo.cn/hextech/augment-icons/apexinventor_large.png
+坚韧,https://arammayhem.com/augments/Perseverance_mayhem_augment.webp
 惊惧,https://cdn.dtodo.cn/hextech/augment-icons/desecrator_large.png
 精怪魔法,https://cdn.dtodo.cn/hextech/augment-icons/feymagic_large.png
 狙神飞星,https://cdn.dtodo.cn/hextech/augment-icons/questbangbang_large.png
@@ -142,6 +144,7 @@
 双刀流,https://cdn.dtodo.cn/hextech/augment-icons/dualwield_large.png
 双发快射,https://cdn.dtodo.cn/hextech/augment-icons/doubletap_large.png
 双生火焰,https://cdn.dtodo.cn/hextech/augment-icons/twinfire_large.png
+双重打击,https://raw.communitydragon.org/latest/game/assets/ux/kiwi/augments/icons/adamant_large.png
 死亡之环,https://cdn.dtodo.cn/hextech/augment-icons/circleofdeath_large.png
 缩小射线,https://cdn.dtodo.cn/hextech/augment-icons/shrinkray_large.png
 缩小引擎,https://cdn.dtodo.cn/hextech/augment-icons/shrinkengine_large.png
@@ -166,12 +169,14 @@
 舞会女王,https://cdn.dtodo.cn/hextech/augment-icons/promqueen_large.png
 物法皆修,https://cdn.dtodo.cn/hextech/augment-icons/masterofduality_large.png
 物理转魔法,https://cdn.dtodo.cn/hextech/augment-icons/adapt_large.png
+吸血习性,https://arammayhem.com/augments/Vampirism_mayhem_augment.webp
 下雪天,https://cdn.dtodo.cn/hextech/augment-icons/snowday_large.png
 小小的额外帮助,https://cdn.dtodo.cn/hextech/augment-icons/genericabilityaugmenticon_gold.png
 心灵净化,https://cdn.dtodo.cn/hextech/augment-icons/spiritualpurification_large.png
 信念者的强化,https://cdn.dtodo.cn/hextech/augment-icons/empoweredbythefaithful_large.png
 星界躯体,https://cdn.dtodo.cn/hextech/augment-icons/celestialbody_large.png
 虚幻武器,https://cdn.dtodo.cn/hextech/augment-icons/etherealweapon_large.png
+虚空冲刺,https://arammayhem.com/augments/Void_Dash_mayhem_augment.webp
 旋转至胜,https://cdn.dtodo.cn/hextech/augment-icons/spintowin_large.png
 循环往复,https://cdn.dtodo.cn/hextech/augment-icons/recursion_large.png
 牙仙子,https://cdn.dtodo.cn/hextech/augment-icons/questburstingteeth_large.png

@@ -12,7 +12,7 @@ interface AppProps {
 
 const PHASE_LABELS: Record<string, string> = {
   None: '已连接客户端 · 待命',
-  Lobby: '大厅',
+  Lobby: '房间中',
   Matchmaking: '匹配中',
   ReadyCheck: '准备确认',
   ChampSelect: '英雄选择阶段',
@@ -83,12 +83,11 @@ export default function App({ variant = 'panel', onCollapse }: AppProps) {
   if (connected) {
     const parts: string[] = [];
     if (session.queueId !== null) {
-      parts.push((session.isTargetMode ? '目标队列' : '非目标队列') + ' · 队列 ' + session.queueId);
+      parts.push(session.isTargetMode ? '目标队列' : '非目标队列');
     }
     if (session.myChampionId !== null && session.myChampionId > 0) {
       parts.push('当前英雄：' + (autoChampion ? autoChampion.nameZh : '英雄 ID ' + session.myChampionId));
     }
-    if (!session.isTargetMode) parts.push('数据供参考');
     statusDetail = parts.join(' · ');
   }
 

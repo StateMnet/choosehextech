@@ -69,8 +69,8 @@ await check('客户端连接后选人阶段显示面板', () => {
   assert.equal(visibility.overlay, false);
 });
 
-await check('客户端连接后任意阶段显示面板（决策 #7）', () => {
-  for (const phase of ['Lobby', 'Matchmaking', 'ReadyCheck', 'InProgress', 'WaitingForStats']) {
+await check('客户端连接后任意阶段显示面板（决策 #7/#22：游戏内隐藏）', () => {
+  for (const phase of ['Lobby', 'Matchmaking', 'ReadyCheck', 'ChampSelect', 'WaitingForStats']) {
     const visibility = windowVisibilityFor(makeState({ phase: phase as SessionState['phase'], isTargetMode: false }), {
       overlayEnabled: false,
       panelManuallyOpen: false,
@@ -78,6 +78,18 @@ await check('客户端连接后任意阶段显示面板（决策 #7）', () => {
     });
     assert.equal(visibility.panel, true, phase + ' 阶段面板应可见');
   }
+  // 游戏中（InProgress）：面板自动隐藏，除非用户手动打开
+  const inGame = makeState({ phase: 'InProgress', isTargetMode: false });
+  assert.equal(
+    windowVisibilityFor(inGame, { overlayEnabled: false, panelManuallyOpen: false, overlayManuallyOpen: false }).panel,
+    false,
+    '游戏中面板应自动隐藏',
+  );
+  assert.equal(
+    windowVisibilityFor(inGame, { overlayEnabled: false, panelManuallyOpen: true, overlayManuallyOpen: false }).panel,
+    true,
+    '游戏中手动打开面板仍可见',
+  );
 });
 
 await check('手动打开面板时任意阶段可见', () => {
@@ -87,6 +99,12 @@ await check('手动打开面板时任意阶段可见', () => {
     overlayManuallyOpen: false,
   });
   assert.equal(visibility.panel, true);
+  const inGame = windowVisibilityFor(makeState({ phase: 'InProgress' }), {
+    overlayEnabled: false,
+    panelManuallyOpen: true,
+    overlayManuallyOpen: false,
+  });
+  assert.equal(inGame.panel, true);
 });
 
 await check('游戏中浮窗自动显示（目标队列）', () => {

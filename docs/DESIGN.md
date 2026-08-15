@@ -437,6 +437,7 @@ README 与安装包内醒目声明：
 | 19 | 游戏内数据与交互修订 | ① 快捷栏改为网格布局（一行 5 个自动换行，去横向滚动）；② 队友/对手信息跨阶段保留到游戏内（离开选人不清理，回大厅/新选人才重置），游戏内快捷列表 = 我+队友（无备选池）；③ 渲染层启动时主动拉取当前状态（state:get），修复窗口加载前错过首发状态消息导致游戏内显示「未连接客户端」的竞态 | packages/game-session/src/reducer.ts、apps/desktop/src/renderer/src/{App.tsx,lib/select.ts,styles.css}、preload/index.ts |
 | 20 | 状态文案修正（联调期实测） | 客户端停在主界面时 gameflow-phase 为 `None`（已连接但未进入任何流程），此前被误显示为「未连接客户端」；修正：session 为空才显示「未连接客户端（自动重连中）」，phase=None 显示「已连接客户端 · 待命」 | apps/desktop/src/renderer/src/App.tsx |
 | 21 | 顶部状态栏改版 | 顶部改为左右两区：**左上**显示已连接召唤师名字 + 状态点（绿点=客户端已连接并带呼吸动画，红点=未连接）；**右上**显示详细状态（阶段 + 队列类型/ID + 当前英雄名），未连接时显示「未连接客户端 / 正在自动重连客户端…」。召唤师名字来自 `/lol-summoner/v1/current-summoner`（displayName 优先，回落 gameName/internalName），随轮询并入 SessionState | packages/game-session/src/{types,reducer,tracker}.ts、apps/desktop/src/renderer/src/{App.tsx,styles.css} |
+| 22 | 游戏内隐藏主面板 | 进入游戏（InProgress）后面板自动隐藏（最小化），由浮窗接管查阅；游戏结束（离开 InProgress）自动恢复显示。用户手动打开（托盘/热键）时游戏内仍可见 | apps/desktop/src/main/{index,policy}.ts |
 
 ---
 

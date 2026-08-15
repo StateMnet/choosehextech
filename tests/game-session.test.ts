@@ -120,7 +120,33 @@ await check('applyLobby 按目标队列过滤', () => {
   const allModes = applyLobby(base, makeLobby(1900), null);
   assert.equal(allModes.isTargetMode, true);
   const noQueue = applyLobby(base, { gameConfig: { queueId: 0 } }, [450]);
-  assert.equal(noQueue.queueId, 0);
+  assert.equal(noQueue.queueId, null); // queueId 0 = 不在房间
+});
+
+await check('applyLobby 换房间同步目标队列：目标→非目标→离开房间', () => {
+  const base = createInitialState();
+  const target = applyLobby(base, makeLobby(3270), [3270]);
+  assert.equal(target.isTargetMode, true);
+  const nonTarget = applyLobby(target, makeLobby(450), [3270]);
+  assert.equal(nonTarget.queueId, 450);
+  assert.equal(nonTarget.isTargetMode, false);
+  const left = applyLobby(nonTarget, null, [3270]);
+  assert.equal(left.queueId, null); // 离开房间：清空队列
+  const rejoined = applyLobby(left, makeLobby(3270), [3270]);
+  assert.equal(rejoined.isTargetMode, true);
+  const sameQueue = applyLobby(rejoined, makeLobby(3270), [3270]);
+  assert.equal(sameQueue, rejoined); // 队列未变：引用不变（statesEqual 优化）
+});
+
+await check('applyLobby 兼容字符串 queueId（国服可能返回字符串）', () => {
+  const base = createInitialState();
+  const asString = applyLobby(base, { gameConfig: { queueId: '3270' } }, [3270]);
+  assert.equal(asString.queueId, 3270); // 字符串归一为数字
+  assert.equal(asString.isTargetMode, true);
+  const empty = applyLobby(base, { gameConfig: { queueId: '' } }, [3270]);
+  assert.equal(empty.queueId, null); // 空串 = 不在房间
+  const nonNumeric = applyLobby(base, { gameConfig: { queueId: 'abc' } }, [3270]);
+  assert.equal(nonNumeric.queueId, null);
 });
 
 await check('applySummoner 提取召唤师名字（displayName 优先）', () => {

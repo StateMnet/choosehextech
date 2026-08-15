@@ -1,4 +1,6 @@
+# 装备名 → 图标 URL（国服译名；来源：腾讯官方素材 game.gtimg.cn + ARAM Mayhem 海斗专有装备）
 装备名,图标URL
+阿塔玛的清算,https://pub-2322c7068eed43b08bc0dddf6528d1e2.r2.dev/v1/items/icons/atmas_reckoning/64.png
 黯炎火炬,https://game.gtimg.cn/images/lol/act/img/item/2503.png
 黯影阔剑,https://game.gtimg.cn/images/lol/act/img/item/3179.png
 霸王血铠,https://game.gtimg.cn/images/lol/act/img/item/2501.png
@@ -64,8 +66,10 @@
 黑暗封印,https://game.gtimg.cn/images/lol/act/img/item/1082.png
 黑色切割者,https://game.gtimg.cn/images/lol/act/img/item/3071.png
 红水晶,https://game.gtimg.cn/images/lol/act/img/item/1028.png
+花晓之剑,https://pub-2322c7068eed43b08bc0dddf6528d1e2.r2.dev/v1/items/icons/sword_of_blossoming_dawn/64.png
 幻影之舞,https://game.gtimg.cn/images/lol/act/img/item/3046.png
 黄昏与黎明,https://game.gtimg.cn/images/lol/act/img/item/2510.png
+毁坏仪式,https://pub-2322c7068eed43b08bc0dddf6528d1e2.r2.dev/v1/items/icons/rite_of_ruin/64.png
 基克的聚合,https://game.gtimg.cn/images/lol/act/img/item/3050.png
 疾射火炮,https://game.gtimg.cn/images/lol/act/img/item/3094.png
 棘刺背心,https://game.gtimg.cn/images/lol/act/img/item/3076.png
@@ -162,6 +166,7 @@
 蜕生,https://game.gtimg.cn/images/lol/act/img/item/3137.png
 万世催化石,https://game.gtimg.cn/images/lol/act/img/item/3803.png
 亡者的板甲,https://game.gtimg.cn/images/lol/act/img/item/3742.png
+沃格勒特的巫师帽,https://pub-2322c7068eed43b08bc0dddf6528d1e2.r2.dev/v1/items/icons/wooglets_witchcap/64.png
 巫术合剂,https://game.gtimg.cn/images/lol/act/img/item/2139.png
 巫妖之祸,https://game.gtimg.cn/images/lol/act/img/item/3100.png
 无尽之刃,https://game.gtimg.cn/images/lol/act/img/item/3031.png

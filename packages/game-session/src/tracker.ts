@@ -127,7 +127,11 @@ export class SessionTracker {
       const dto = await this.deps.fetchJson('/lol-lobby/v2/lobby');
       this.update(applyLobby(this.state, dto as LobbyDto, this.targetQueueIds));
     } catch {
-      // 游戏内 lobby 404 是正常情况
+      // 不在房间（主界面）时 lobby 404 是正常情况 → 清空队列信息；
+      // 游戏内（InProgress 等）lobby 404 也正常，但需保留队列/目标标记供浮窗显隐判断
+      if (this.state.phase === 'None' || this.state.phase === 'Lobby') {
+        this.update(applyLobby(this.state, null, this.targetQueueIds));
+      }
     }
   }
 

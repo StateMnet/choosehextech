@@ -75,7 +75,8 @@ export interface ChampSelectSessionDto {
 }
 
 export interface LobbyDto {
-  gameConfig: { queueId: number; [key: string]: unknown };
+  /** 国服实测可能返回数字或字符串 */
+  gameConfig: { queueId: number | string; [key: string]: unknown };
   [key: string]: unknown;
 }
 
