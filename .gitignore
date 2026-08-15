@@ -2,7 +2,6 @@ node_modules/
 .pnpm-store/
 .corepack/
 .electron-cache/
-dist/
 apps/desktop/out/
 apps/desktop/release/
 champselect-capture.json
