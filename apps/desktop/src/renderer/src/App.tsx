@@ -7,7 +7,6 @@ import { buildQuickChampionList, championByNumericId, defaultBuildName, searchCh
 
 interface AppProps {
   variant?: 'panel' | 'overlay';
-  onCollapse?: () => void;
 }
 
 const PHASE_LABELS: Record<string, string> = {
@@ -25,7 +24,7 @@ const PHASE_LABELS: Record<string, string> = {
   Unknown: '未知状态',
 };
 
-export default function App({ variant = 'panel', onCollapse }: AppProps) {
+export default function App({ variant = 'panel' }: AppProps) {
   const [bundle, setBundle] = useState<DataBundle | null>(null);
   const [session, setSession] = useState<SessionState | null>(null);
   const [query, setQuery] = useState('');
@@ -97,14 +96,6 @@ export default function App({ variant = 'panel', onCollapse }: AppProps) {
 
   return (
     <div className={variant === 'overlay' ? 'app overlay-variant' : 'app'}>
-      {variant === 'overlay' && (
-        <div className="overlay-header">
-          <span className="overlay-drag">◇ 海克斯浮窗</span>
-          <button className="overlay-btn" onClick={onCollapse}>
-            ◀ 收起
-          </button>
-        </div>
-      )}
       <header className="status-bar">
         <div className="conn">
           <span className={'conn-dot ' + (connected ? 'online' : 'offline')} />

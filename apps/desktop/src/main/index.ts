@@ -299,17 +299,7 @@ function applyWindowPolicy(): void {
 }
 
 function handleSessionState(state: SessionState | null): void {
-  const wasInGame = lastState?.phase === 'InProgress';
-  const nowInGame = state?.phase === 'InProgress';
-  if (nowInGame !== wasInGame) {
-    if (nowInGame) {
-      // 进入游戏：主面板自动隐藏（决策 #22），浮窗接管；游戏结束后恢复显示
-      manualPanelOpen = false;
-    } else {
-      // 游戏结束（或客户端断开）：恢复面板显示
-      manualPanelOpen = true;
-    }
-  }
+  // 游戏开始/结束不再自动隐藏或恢复主面板（保持用户当前状态，不做任何操作）
   lastState = state;
   applyWindowPolicy();
   for (const target of [panel, overlay]) {

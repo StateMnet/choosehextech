@@ -515,23 +515,40 @@ body {
 /* ===== 游戏内浮窗（与面板同构 + 左侧开关按钮，决策 #18） ===== */
 
 .overlay-shell {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-}
-
-.app.overlay-variant {
-  border-radius: var(--radius-lg);
+  overflow: hidden;
   border: 1px solid var(--border-strong);
-  overflow-x: hidden;
-  overflow-y: auto;
+  border-radius: var(--radius-lg);
   background: radial-gradient(130% 100% at 20% 0%, #1b2347 0%, #10142a 60%, #0c0f1e 100%);
 }
 
+/* 展开态顶部表头：固定不动，内容区独立滚动（始终可点击「收回」） */
 .overlay-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13, 16, 32, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.overlay-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.overlay-body .app.overlay-variant {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: transparent;
 }
 
 .overlay-drag {
