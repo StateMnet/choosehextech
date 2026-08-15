@@ -1,8 +1,9 @@
-import { app, BrowserWindow, globalShortcut, ipcMain, Menu, nativeImage, screen, Tray } from 'electron';
+import { app, BrowserWindow, dialog, globalShortcut, ipcMain, Menu, nativeImage, screen, Tray } from 'electron';
 import { join } from 'node:path';
 import { AppSession } from './app-session';
 import { clampOpacity, loadConfig, saveConfig, type AppConfig } from './config';
 import { loadDataBundle } from './data-loader';
+import { checkAndUpdateData, type UpdateResult } from './data-updater';
 import { windowVisibilityFor } from './policy';
 import { HEXTECH_ARAM_QUEUE_IDS, type SessionState } from '@choosehextech/game-session';
 import type { DataBundle } from '@choosehextech/data-core';
@@ -18,7 +19,7 @@ let manualOverlayVisible = false;
 let lastOverlayVisible: boolean | null = null;
 let tray: Tray | null = null;
 let isQuitting = false;
-let config: AppConfig = { overlay: { opacity: 0.88 } };
+let config: AppConfig = { overlay: { opacity: 0.88 }, update: {} };
 const overlayEnabled = true; // M2：游戏内浮窗启用
 
 const OVERLAY_TOGGLE_HOTKEY = 'Ctrl+Shift+H';
@@ -45,6 +46,7 @@ if (!gotLock) {
     session = new AppSession({ targetQueueIds: [...HEXTECH_ARAM_QUEUE_IDS], onState: handleSessionState });
     session.start();
     applyWindowPolicy();
+    void checkDataUpdate();
   });
 }
 
@@ -59,10 +61,16 @@ app.on('before-quit', () => {
   session?.stop();
 });
 
+function dataDirPath(): string {
+  // 与 config.json 同目录（%APPDATA%/ChooseHextech），避免 userData 在开发/打包下名称不一致
+  return join(app.getPath('appData'), 'ChooseHextech', 'data');
+}
+
 function resolveBundle(): DataBundle | null {
   const appPath = app.getAppPath();
   const candidates = [
     process.env['CHOOSEHEXTECH_DATA_DIR'],
+    dataDirPath(),
     join(appPath, 'dist'),
     join(appPath, '..', 'dist'),
     join(appPath, '..', '..', 'dist'),
@@ -72,6 +80,83 @@ function resolveBundle(): DataBundle | null {
   if (loaded) console.log('[ChooseHextech] data bundle loaded: ' + loaded.path);
   else console.warn('[ChooseHextech] data bundle not found, run pnpm build:data first');
   return loaded?.bundle ?? null;
+}
+
+async function fetchText(url: string): Promise<string> {
+  const res = await fetch(url, { signal: AbortSignal.timeout(15_000) });
+  if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
+  return res.text();
+}
+
+async function fetchBuffer(url: string): Promise<Buffer> {
+  const res = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+  if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
+  return Buffer.from(await res.arrayBuffer());
+}
+
+function broadcastBundle(): void {
+  for (const target of [panel, overlay]) {
+    if (target && !target.isDestroyed()) {
+      target.webContents.send('bundle:updated', loadedBundle);
+    }
+  }
+}
+
+/** 执行一次数据更新检查；更新成功后重载数据并通知渲染层 */
+async function performDataUpdate(manifestUrl: string): Promise<UpdateResult> {
+  const result = await checkAndUpdateData(
+    { fetchText, fetchBuffer },
+    dataDirPath(),
+    manifestUrl,
+  );
+  if (result.status === 'updated') {
+    loadedBundle = resolveBundle();
+    broadcastBundle();
+  }
+  return result;
+}
+
+/** 启动时后台静默检查更新，失败保持现有数据 */
+async function checkDataUpdate(): Promise<void> {
+  const manifestUrl = config.update.dataManifestUrl;
+  if (!manifestUrl) {
+    console.log('[ChooseHextech] 未配置数据更新源（config.update.dataManifestUrl），跳过在线更新');
+    return;
+  }
+  try {
+    const result = await performDataUpdate(manifestUrl);
+    console.log('[ChooseHextech] 数据更新检查：' + result.message);
+  } catch (error) {
+    console.warn(
+      '[ChooseHextech] 数据更新失败（保持现有数据）：',
+      error instanceof Error ? error.message : String(error),
+    );
+  }
+}
+
+/** 托盘手动触发更新，弹窗反馈结果 */
+async function manualDataUpdate(): Promise<void> {
+  const manifestUrl = config.update.dataManifestUrl;
+  if (!manifestUrl) {
+    await dialog.showMessageBox({
+      type: 'info',
+      title: '数据更新',
+      message: '尚未配置数据更新源',
+      detail: '请在 config.json 的 update.dataManifestUrl 填写 manifest.json 的完整地址。',
+    });
+    return;
+  }
+  try {
+    const result = await performDataUpdate(manifestUrl);
+    await dialog.showMessageBox({ type: 'info', title: '数据更新', message: result.message });
+  } catch (error) {
+    await dialog.showMessageBox({
+      type: 'error',
+      title: '数据更新',
+      message: '更新失败',
+      detail: error instanceof Error ? error.message : String(error),
+    });
+  }
 }
 
 function createPanel(): void {
@@ -167,6 +252,7 @@ function createTray(): void {
     tray.setContextMenu(
       Menu.buildFromTemplate([
         { label: '显示/隐藏面板', click: toggle },
+        { label: '检查数据更新', click: () => void manualDataUpdate() },
         { type: 'separator' },
         { label: '退出', click: () => app.quit() },
       ]),

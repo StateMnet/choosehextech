@@ -7,11 +7,17 @@ export interface OverlayConfig {
   opacity?: number;
 }
 
-export interface AppConfig {
-  overlay: OverlayConfig;
+export interface UpdateConfig {
+  /** 数据清单 manifest.json 的完整 URL；留空则跳过在线更新 */
+  dataManifestUrl?: string;
 }
 
-const DEFAULTS: AppConfig = { overlay: { opacity: 0.88 } };
+export interface AppConfig {
+  overlay: OverlayConfig;
+  update: UpdateConfig;
+}
+
+const DEFAULTS: AppConfig = { overlay: { opacity: 0.88 }, update: {} };
 
 export function configFilePath(configDir: string): string {
   return join(configDir, 'config.json');
@@ -21,9 +27,12 @@ export function configFilePath(configDir: string): string {
 export function loadConfig(configDir: string): AppConfig {
   try {
     const raw = JSON.parse(readFileSync(configFilePath(configDir), 'utf8')) as Partial<AppConfig>;
-    return { overlay: { ...DEFAULTS.overlay, ...(raw.overlay ?? {}) } };
+    return {
+      overlay: { ...DEFAULTS.overlay, ...(raw.overlay ?? {}) },
+      update: { ...DEFAULTS.update, ...(raw.update ?? {}) },
+    };
   } catch {
-    return { overlay: { ...DEFAULTS.overlay } };
+    return { overlay: { ...DEFAULTS.overlay }, update: { ...DEFAULTS.update } };
   }
 }
 

@@ -4,6 +4,7 @@ import type { SessionState } from '@choosehextech/game-session';
 export interface ChooseHextechApi {
   onSessionState(callback: (state: SessionState | null) => void): () => void;
   getBundle(): Promise<DataBundle | null>;
+  onBundleUpdated(callback: (bundle: DataBundle | null) => void): () => void;
   getState(): Promise<SessionState | null>;
   setOverlayInteractive(enabled: boolean): void;
   setOverlayMode(mode: 'collapsed' | 'expanded'): void;

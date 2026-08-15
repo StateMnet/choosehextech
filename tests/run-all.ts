@@ -1,4 +1,4 @@
-const files = ['data.test.ts', 'lcu-client.test.ts', 'game-session.test.ts', 'desktop-logic.test.ts'];
+const files = ['data.test.ts', 'lcu-client.test.ts', 'game-session.test.ts', 'desktop-logic.test.ts', 'data-updater.test.ts'];
 let failed = 0;
 for (const file of files) {
   console.log('\n===== ' + file + ' =====');

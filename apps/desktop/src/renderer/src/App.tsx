@@ -36,6 +36,9 @@ export default function App({ variant = 'panel', onCollapse }: AppProps) {
     const unsubscribe = window.choosehextech.onSessionState((state) => {
       if (mounted) setSession(state);
     });
+    const unsubscribeBundle = window.choosehextech.onBundleUpdated((data) => {
+      if (mounted) setBundle(data);
+    });
     void window.choosehextech.getBundle().then((data) => {
       if (mounted) setBundle(data);
     });
@@ -46,6 +49,7 @@ export default function App({ variant = 'panel', onCollapse }: AppProps) {
     return () => {
       mounted = false;
       unsubscribe();
+      unsubscribeBundle();
     };
   }, []);
 

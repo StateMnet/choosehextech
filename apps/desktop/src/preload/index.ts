@@ -17,6 +17,9 @@ const api = {
   getBundle(): Promise<DataBundle | null> {
     return ipcRenderer.invoke('bundle:get') as Promise<DataBundle | null>;
   },
+  onBundleUpdated(callback: (bundle: DataBundle | null) => void): () => void {
+    return onChannel('bundle:updated', callback);
+  },
   getState(): Promise<SessionState | null> {
     return ipcRenderer.invoke('state:get') as Promise<SessionState | null>;
   },
