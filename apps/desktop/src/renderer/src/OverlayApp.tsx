@@ -51,17 +51,20 @@ export default function OverlayApp() {
           window.choosehextech.setOverlayInteractive(true);
         }}
         onMouseLeave={() => {
-          // 鼠标移出：恢复穿透，0.5 秒延迟后自动收回为左侧按钮（期间移回则取消）
+          // 鼠标移出：恢复穿透，0.3 秒延迟后自动收回为左侧按钮（期间移回则取消）
           window.choosehextech.setOverlayInteractive(false);
           if (leaveTimer.current) clearTimeout(leaveTimer.current);
           leaveTimer.current = setTimeout(() => {
             leaveTimer.current = null;
             setMode('collapsed');
-          }, 500);
+          }, 300);
         }}
       >
         <div className="overlay-header">
-          <span className="overlay-drag">◇ 海克斯浮窗</span>
+          <div className="overlay-title">
+            <span className="overlay-drag">◇ 海克斯浮窗</span>
+            <span className="overlay-subtitle">如果无法点击此窗口 切屏到此应用即可恢复</span>
+          </div>
           <button className="overlay-btn" onClick={() => setMode('collapsed')}>
             ◀ 收回
           </button>

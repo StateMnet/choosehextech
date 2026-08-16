@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { DataBundle, ChampionEntry } from '@choosehextech/data-core';
 import type { SessionState } from '@choosehextech/game-session';
 import ChampionPanel from './components/ChampionPanel';
@@ -29,6 +29,7 @@ export default function App({ variant = 'panel' }: AppProps) {
   const [session, setSession] = useState<SessionState | null>(null);
   const [query, setQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState('');
+  const prevMyChampionId = useRef<number | null | undefined>(undefined);
 
   useEffect(() => {
     let mounted = true;
@@ -68,6 +69,15 @@ export default function App({ variant = 'panel' }: AppProps) {
     if (query.trim() !== '') return results[0];
     return autoChampion;
   }, [query, results, autoChampion]);
+
+  // 己方英雄切换（重roll / 交换）：清空搜索词，让面板跟随显示「自己英雄」
+  useEffect(() => {
+    const myId = session?.myChampionId ?? null;
+    if (prevMyChampionId.current !== undefined && myId !== prevMyChampionId.current) {
+      setQuery('');
+    }
+    prevMyChampionId.current = myId;
+  }, [session?.myChampionId]);
 
   useEffect(() => {
     // 英雄切换时默认选中第一个套路
