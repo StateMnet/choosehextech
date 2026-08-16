@@ -1,0 +1,7 @@
+改 data/champions.tsv 等数据
+改 data/meta/release.json 里的 dataVersion（如 1.0.0 → 1.0.1）
+pnpm build:data（重新生成 dist）
+git add -A && git commit && git push（用 socks5 代理推送）
+这样用户的软件下次启动或点「检查数据更新」就会自动拉到新数据，不用重下 exe。
+
+注意：jsDelivr 对新文件有缓存，最长可能几小时。想立即生效，可以去 jsdelivr.com 搜这个文件点 purge，或者以后改用 @v1.0.0 这种 tag 精确版本。
