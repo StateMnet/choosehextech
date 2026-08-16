@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "dataVersion": "1.0.0",
+  "dataVersion": "1.1.0",
   "gamePatch": "26.16",
   "mode": "hextech-aram",
-  "file": "data-1.0.0.json",
-  "sha256": "a74e17d8015b07dd0d0992bee017f6ff7b5bb28cb0473e77c356fb8ce5852587",
-  "builtAt": "2026-08-15T09:07:26.500Z"
+  "file": "data-1.1.0.json",
+  "sha256": "9e9eb6df5f94ef67539655dd4307d5e0ca7752d359b845c11366d182cda5c39e",
+  "builtAt": "2026-08-16T10:43:12.367Z"
 }
