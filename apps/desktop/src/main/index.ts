@@ -5,7 +5,7 @@ import { clampOpacity, loadConfig, saveConfig, type AppConfig } from './config';
 import { loadDataBundle } from './data-loader';
 import { checkAndUpdateData, type UpdateResult } from './data-updater';
 import { windowVisibilityFor } from './policy';
-import { HEXTECH_ARAM_QUEUE_IDS, type SessionState } from '@choosehextech/game-session';
+import { HEXTECH_ARAM_QUEUE_IDS, type ChampSelectSessionDto, type SessionState } from '@choosehextech/game-session';
 import type { DataBundle } from '@choosehextech/data-core';
 
 let panel: BrowserWindow | null = null;
@@ -312,6 +312,36 @@ function handleSessionState(state: SessionState | null): void {
 function registerIpc(): void {
   ipcMain.handle('bundle:get', () => loadedBundle);
   ipcMain.handle('state:get', () => lastState);
+  // 抢选：找到己方未完成的 pick 动作 → 填入英雄 → 锁定
+  ipcMain.handle('champselect:pick-lock', async (_event, championId: number) => {
+    if (!session) {
+      console.warn('[pick] 未连接客户端');
+      return { ok: false, message: '未连接客户端' };
+    }
+    try {
+      const dto = await session.requestLcu<ChampSelectSessionDto>('GET', '/lol-champ-select/v1/session');
+      console.log(
+        '[pick] session: localPlayerCellId=' + dto.localPlayerCellId +
+        ' actions=' + JSON.stringify(dto.actions),
+      );
+      const action = dto.actions
+        .flat()
+        .find((a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false && !a.completed);
+      if (!action || action.id === undefined) {
+        console.warn('[pick] 未找到可操作的 pick 动作');
+        return { ok: false, message: '未找到可操作的选人动作' };
+      }
+      console.log('[pick] 找到动作 id=' + action.id + '，目标 championId=' + championId);
+      await session.requestLcu('PATCH', '/lol-champ-select/v1/session/actions/' + action.id, { championId, completed: false });
+      console.log('[pick] PATCH 成功');
+      await session.requestLcu('POST', '/lol-champ-select/v1/session/actions/' + action.id + '/complete');
+      console.log('[pick] 锁定成功');
+      return { ok: true, message: '已抢选并锁定' };
+    } catch (error) {
+      console.error('[pick] 失败:', error);
+      return { ok: false, message: error instanceof Error ? error.message : String(error) };
+    }
+  });
   ipcMain.on('overlay:set-interactive', (_event, enabled: boolean) => {
     if (!overlay || overlay.isDestroyed()) return;
     overlay.setIgnoreMouseEvents(!enabled, { forward: true });

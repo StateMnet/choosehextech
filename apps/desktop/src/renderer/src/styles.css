@@ -73,9 +73,18 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 12px 8px 12px 14px;
-  gap: 10px;
+  overflow: hidden;
+}
+
+/* 滚动内容区（底栏固定在窗口底部，不随内容滚动） */
+.app-scroll {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 8px 12px 14px;
 }
 
 /* ===== 顶部状态栏 ===== */
@@ -349,6 +358,56 @@ body {
   color: var(--text-3);
 }
 
+/* ===== 抢选按钮（选人阶段，头像行最右侧） ===== */
+.pick-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #f0a93c, #d08a24);
+  border: 1px solid #f2b957;
+  color: #1a1306;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pick-btn:hover {
+  filter: brightness(1.12);
+}
+
+.pick-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.pick-btn.done {
+  background: linear-gradient(180deg, #4bd0a1, #2ba37c);
+  border-color: #5fe0b5;
+  color: #06281c;
+}
+
+.pick-btn.error {
+  background: linear-gradient(180deg, #e05a5a, #b33a3a);
+  border-color: #ef8080;
+  color: #ffffff;
+}
+
+.pick-feedback {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: -4px;
+}
+
+.pick-feedback.error {
+  color: var(--danger);
+}
+
+.pick-feedback.done {
+  color: var(--accent-2);
+}
+
 /* ===== 套路标签 ===== */
 .build-tabs {
   display: flex;
@@ -512,6 +571,137 @@ body {
   padding-top: 4px;
 }
 
+/* ===== 面板固定底栏 ===== */
+.bottom-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 12px;
+  border-top: 1px solid var(--border);
+  background: rgba(13, 16, 32, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.settings-btn {
+  background: rgba(34, 45, 82, 0.75);
+  border: 1px solid var(--border-strong);
+  color: var(--text-2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.settings-btn:hover {
+  background: rgba(52, 68, 118, 0.85);
+  color: var(--text);
+}
+
+.footer-text {
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== 设置弹窗 ===== */
+.settings-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 18, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.settings-dialog {
+  width: 320px;
+  max-width: 90vw;
+  background: var(--bg-1);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.settings-dialog h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* 示例开关（占位） */
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(34, 45, 82, 0.75);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.toggle.on {
+  background: linear-gradient(180deg, #4bd0a1, #2ba37c);
+  border-color: #5fe0b5;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: left 0.2s ease;
+}
+
+.toggle.on .toggle-knob {
+  left: 20px;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.settings-actions button {
+  background: rgba(34, 45, 82, 0.75);
+  border: 1px solid var(--border-strong);
+  color: var(--text-2);
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.settings-actions button:hover {
+  filter: brightness(1.15);
+}
+
 /* ===== 游戏内浮窗（与面板同构 + 左侧开关按钮，决策 #18） ===== */
 
 .overlay-shell {
@@ -563,8 +753,7 @@ body {
   height: 100%;
   border: none;
   border-radius: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   background: transparent;
 }
 

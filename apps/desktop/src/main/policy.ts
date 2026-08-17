@@ -16,17 +16,14 @@ export interface WindowVisibility {
 
 /**
  * 按 DESIGN.md FR1/FR2 决定各窗口显隐（决策 #7/#17/#22）。
- * 面板：客户端连接后即显示（选人阶段自动定位当前英雄，其他阶段供搜索查询）；
- *      进入游戏（InProgress）自动隐藏（最小化），游戏结束恢复显示；用户手动打开时游戏中也显示。
+ * 面板：显隐完全跟随用户手动开关（默认显示；点关闭/托盘切换即隐藏，任意阶段一致），
+ *      游戏开始/结束不再自动改变面板状态。
  * 浮窗：目标队列游戏中自动显示，或手动开关（热键）强制显示/隐藏；离开游戏自动隐藏。
  */
 export function windowVisibilityFor(state: SessionState | null, input: WindowPolicyInput): WindowVisibility {
-  if (!state) {
-    return { panel: input.panelManuallyOpen, overlay: input.overlayManuallyOpen };
-  }
-  const inGame = state.phase === 'InProgress';
+  const inGame = state?.phase === 'InProgress';
   return {
-    panel: !inGame || input.panelManuallyOpen,
-    overlay: input.overlayManuallyOpen || (input.overlayEnabled && state.isTargetMode && inGame),
+    panel: input.panelManuallyOpen,
+    overlay: input.overlayManuallyOpen || (input.overlayEnabled && Boolean(state?.isTargetMode) && inGame),
   };
 }

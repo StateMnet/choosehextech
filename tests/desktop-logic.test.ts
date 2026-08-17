@@ -62,49 +62,29 @@ function loadFixtureBundle() {
 await check('客户端连接后选人阶段显示面板', () => {
   const visibility = windowVisibilityFor(makeState({ phase: 'ChampSelect', isTargetMode: true }), {
     overlayEnabled: false,
-    panelManuallyOpen: false,
+    panelManuallyOpen: true,
     overlayManuallyOpen: false,
   });
   assert.equal(visibility.panel, true);
   assert.equal(visibility.overlay, false);
 });
 
-await check('客户端连接后任意阶段显示面板（决策 #7/#22：游戏内隐藏）', () => {
-  for (const phase of ['Lobby', 'Matchmaking', 'ReadyCheck', 'ChampSelect', 'WaitingForStats']) {
-    const visibility = windowVisibilityFor(makeState({ phase: phase as SessionState['phase'], isTargetMode: false }), {
+await check('面板显隐完全跟随手动开关（任意阶段一致，含游戏中）', () => {
+  const phases: SessionState['phase'][] = ['Lobby', 'Matchmaking', 'ReadyCheck', 'ChampSelect', 'InProgress', 'WaitingForStats'];
+  for (const phase of phases) {
+    const shown = windowVisibilityFor(makeState({ phase, isTargetMode: false }), {
+      overlayEnabled: false,
+      panelManuallyOpen: true,
+      overlayManuallyOpen: false,
+    });
+    assert.equal(shown.panel, true, phase + ' 手动打开应可见');
+    const hidden = windowVisibilityFor(makeState({ phase, isTargetMode: false }), {
       overlayEnabled: false,
       panelManuallyOpen: false,
       overlayManuallyOpen: false,
     });
-    assert.equal(visibility.panel, true, phase + ' 阶段面板应可见');
+    assert.equal(hidden.panel, false, phase + ' 手动关闭应隐藏');
   }
-  // 游戏中（InProgress）：面板自动隐藏，除非用户手动打开
-  const inGame = makeState({ phase: 'InProgress', isTargetMode: false });
-  assert.equal(
-    windowVisibilityFor(inGame, { overlayEnabled: false, panelManuallyOpen: false, overlayManuallyOpen: false }).panel,
-    false,
-    '游戏中面板应自动隐藏',
-  );
-  assert.equal(
-    windowVisibilityFor(inGame, { overlayEnabled: false, panelManuallyOpen: true, overlayManuallyOpen: false }).panel,
-    true,
-    '游戏中手动打开面板仍可见',
-  );
-});
-
-await check('手动打开面板时任意阶段可见', () => {
-  const visibility = windowVisibilityFor(makeState({ phase: 'Lobby' }), {
-    overlayEnabled: false,
-    panelManuallyOpen: true,
-    overlayManuallyOpen: false,
-  });
-  assert.equal(visibility.panel, true);
-  const inGame = windowVisibilityFor(makeState({ phase: 'InProgress' }), {
-    overlayEnabled: false,
-    panelManuallyOpen: true,
-    overlayManuallyOpen: false,
-  });
-  assert.equal(inGame.panel, true);
 });
 
 await check('游戏中浮窗自动显示（目标队列）', () => {

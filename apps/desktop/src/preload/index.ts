@@ -23,6 +23,9 @@ const api = {
   getState(): Promise<SessionState | null> {
     return ipcRenderer.invoke('state:get') as Promise<SessionState | null>;
   },
+  pickAndLock(championId: number): Promise<{ ok: boolean; message: string }> {
+    return ipcRenderer.invoke('champselect:pick-lock', championId) as Promise<{ ok: boolean; message: string }>;
+  },
   // ---- 浮窗专用通道 ----
   setOverlayInteractive(enabled: boolean): void {
     ipcRenderer.send('overlay:set-interactive', enabled);

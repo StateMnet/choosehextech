@@ -30,6 +30,12 @@ export class AppSession {
     return this.current;
   }
 
+  /** 透传 LCU REST 请求（含写操作，如选人 PATCH/POST）；未连接时抛错 */
+  requestLcu<T>(method: string, path: string, body?: unknown): Promise<T> {
+    if (!this.client) throw new Error('LCU 客户端未连接');
+    return this.client.request<T>(method, path, body);
+  }
+
   start(): void {
     const intervalMs = this.options.discoveryIntervalMs ?? 5000;
     this.discoveryTimer = setInterval(() => {

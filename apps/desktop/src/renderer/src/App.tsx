@@ -3,6 +3,7 @@ import type { DataBundle, ChampionEntry } from '@choosehextech/data-core';
 import type { SessionState } from '@choosehextech/game-session';
 import ChampionPanel from './components/ChampionPanel';
 import ChampionQuickBar from './components/ChampionQuickBar';
+import SettingsDialog from './components/SettingsDialog';
 import { buildQuickChampionList, championByNumericId, defaultBuildName, searchChampions } from './lib/select';
 
 interface AppProps {
@@ -29,6 +30,7 @@ export default function App({ variant = 'panel' }: AppProps) {
   const [session, setSession] = useState<SessionState | null>(null);
   const [query, setQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState('');
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const prevMyChampionId = useRef<number | null | undefined>(undefined);
 
   useEffect(() => {
@@ -70,6 +72,17 @@ export default function App({ variant = 'panel' }: AppProps) {
     return autoChampion;
   }, [query, results, autoChampion]);
 
+  // 可抢选池：自己英雄 + 备选池（队友的英雄不可抢选）
+  const pickableIds = useMemo(() => {
+    const ids = new Set<number>();
+    if (!session) return ids;
+    if (session.myChampionId !== null && session.myChampionId > 0) ids.add(session.myChampionId);
+    for (const id of session.benchChampionIds) ids.add(id);
+    return ids;
+  }, [session]);
+  const canPickDisplay =
+    displayChampion?.numericId !== undefined && pickableIds.has(displayChampion.numericId);
+
   // 己方英雄切换（重roll / 交换）：清空搜索词，让面板跟随显示「自己英雄」
   useEffect(() => {
     const myId = session?.myChampionId ?? null;
@@ -106,70 +119,87 @@ export default function App({ variant = 'panel' }: AppProps) {
 
   return (
     <div className={variant === 'overlay' ? 'app overlay-variant' : 'app'}>
-      <header className="status-bar">
-        <div className="conn">
-          <span className={'conn-dot ' + (connected ? 'online' : 'offline')} />
-          <span className="conn-name">{connected ? (summonerName ?? '已连接') : '未连接'}</span>
+      <div className="app-scroll">
+        <header className="status-bar">
+          <div className="conn">
+            <span className={'conn-dot ' + (connected ? 'online' : 'offline')} />
+            <span className="conn-name">{connected ? (summonerName ?? '已连接') : '未连接'}</span>
+          </div>
+          <div className="status-detail">
+            <span className={'phase phase-' + phase}>{phaseLabel}</span>
+            {statusDetail !== '' && <span className="status-sub">{statusDetail}</span>}
+          </div>
+        </header>
+
+        {phase === 'ChampSelect' && <div className="hint">海克斯强化在游戏内选择，先看推荐做好规划</div>}
+
+        {quickChampions.length > 0 && (
+          <ChampionQuickBar champions={quickChampions} championIcons={bundle?.championIcons} onSelect={(nameZh) => setQuery(nameZh)} />
+        )}
+
+        <div className="search-row">
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="搜索英雄 / 套路名"
+          />
+          {query !== '' && (
+            <button className="clear" onClick={() => setQuery('')}>
+              ×
+            </button>
+          )}
         </div>
-        <div className="status-detail">
-          <span className={'phase phase-' + phase}>{phaseLabel}</span>
-          {statusDetail !== '' && <span className="status-sub">{statusDetail}</span>}
-        </div>
-      </header>
 
-      {phase === 'ChampSelect' && <div className="hint">海克斯强化在游戏内选择，先看推荐做好规划</div>}
+        {query.trim() !== '' && results.length > 1 && (
+          <ul className="search-results">
+            {results.map((champion) => (
+              <li key={champion.championId} onClick={() => setQuery(champion.nameZh)}>
+                {champion.nameZh}（{champion.builds.length} 个套路）
+              </li>
+            ))}
+          </ul>
+        )}
 
-      {quickChampions.length > 0 && (
-        <ChampionQuickBar champions={quickChampions} championIcons={bundle?.championIcons} onSelect={(nameZh) => setQuery(nameZh)} />
-      )}
+        {!bundle && (
+          <div className="empty">正在加载数据包…（若长时间无响应请先运行 pnpm build:data）</div>
+        )}
+        {bundle && !displayChampion && (
+          <div className="empty">
+            {session && session.myChampionId !== null
+              ? '已识别当前英雄（ID ' + session.myChampionId + '），但它暂不在数据表中：占位样例仅覆盖 10 个英雄。可在上方搜索其他英雄。'
+              : '未找到英雄数据。可在上方搜索，或等待进入英雄选择阶段自动识别。'}
+          </div>
+        )}
+        {bundle && displayChampion && (
+          <ChampionPanel
+            champion={displayChampion}
+            augmentIcons={bundle.augmentIcons}
+            championIcons={bundle.championIcons}
+            itemIcons={bundle.itemIcons}
+            selectedBuild={selectedBuild}
+            onSelectBuild={setSelectedBuild}
+            pickEnabled={phase === 'ChampSelect' && canPickDisplay}
+            onPick={(id) => window.choosehextech.pickAndLock(id)}
+          />
+        )}
 
-      <div className="search-row">
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="搜索英雄 / 套路名"
-        />
-        {query !== '' && (
-          <button className="clear" onClick={() => setQuery('')}>
-            ×
-          </button>
+        {variant === 'overlay' && (
+          <footer className="footer">
+            内容由社区维护，仅供参考 · 数据版本 {bundle?.dataVersion ?? '—'} · 占位样例
+          </footer>
         )}
       </div>
 
-      {query.trim() !== '' && results.length > 1 && (
-        <ul className="search-results">
-          {results.map((champion) => (
-            <li key={champion.championId} onClick={() => setQuery(champion.nameZh)}>
-              {champion.nameZh}（{champion.builds.length} 个套路）
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {!bundle && (
-        <div className="empty">正在加载数据包…（若长时间无响应请先运行 pnpm build:data）</div>
-      )}
-      {bundle && !displayChampion && (
-        <div className="empty">
-          {session && session.myChampionId !== null
-            ? '已识别当前英雄（ID ' + session.myChampionId + '），但它暂不在数据表中：占位样例仅覆盖 10 个英雄。可在上方搜索其他英雄。'
-            : '未找到英雄数据。可在上方搜索，或等待进入英雄选择阶段自动识别。'}
+      {variant === 'panel' && (
+        <div className="bottom-bar">
+          <button className="settings-btn" onClick={() => setSettingsOpen(true)} title="设置">
+            ⚙ 设置
+          </button>
+          <span className="footer-text">内容由社区维护，仅供参考 · 数据版本 {bundle?.dataVersion ?? '—'}</span>
         </div>
       )}
-      {bundle && displayChampion && (
-        <ChampionPanel
-          champion={displayChampion}
-          augmentIcons={bundle.augmentIcons}
-          championIcons={bundle.championIcons}
-          itemIcons={bundle.itemIcons}
-          selectedBuild={selectedBuild}
-          onSelectBuild={setSelectedBuild}
-        />
-      )}
 
-      <footer className="footer">
-        内容由社区维护，仅供参考 · 数据版本 {bundle?.dataVersion ?? '—'} · 占位样例
-      </footer>
+      {settingsOpen && <SettingsDialog onClose={() => setSettingsOpen(false)} />}
     </div>
   );
 }

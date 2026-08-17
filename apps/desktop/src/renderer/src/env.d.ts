@@ -6,6 +6,7 @@ export interface ChooseHextechApi {
   getBundle(): Promise<DataBundle | null>;
   onBundleUpdated(callback: (bundle: DataBundle | null) => void): () => void;
   getState(): Promise<SessionState | null>;
+  pickAndLock(championId: number): Promise<{ ok: boolean; message: string }>;
   setOverlayInteractive(enabled: boolean): void;
   setOverlayMode(mode: 'collapsed' | 'expanded'): void;
   onResetOverlayMode(callback: () => void): () => void;
