@@ -40,13 +40,15 @@ try {
       }[][];
       myTeam?: { cellId: number; championId: number }[];
       bench?: { championId: number }[];
+      benchChampions?: { championId: number }[];
     }>('GET', '/lol-champ-select/v1/session');
     console.log('localPlayerCellId:', session.localPlayerCellId);
     console.log('session.queueId:', session.queueId ?? '(none)');
     console.log('session.isCustomGame:', session.isCustomGame);
     console.log('actions:', JSON.stringify(session.actions ?? []));
     console.log('myTeam:', JSON.stringify(session.myTeam?.map((m) => ({ cellId: m.cellId, championId: m.championId }))));
-    console.log('bench:', JSON.stringify(session.bench?.map((b) => b.championId)));
+    const bench = session.benchChampions ?? session.bench ?? [];
+    console.log('bench:', JSON.stringify(bench.map((b) => b.championId)));
   }
 } catch (error) {
   console.error('request failed:', error);

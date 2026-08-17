@@ -220,8 +220,8 @@ await check('overlay：浮窗入口判定', () => {
 await check('config：读写与透明度钳制', () => {
   const dir = join(import.meta.dirname, '..', '.tmp-test', 'config-dir');
   try {
-    assert.deepEqual(loadConfig(dir), { overlay: { opacity: 0.88 }, update: {} }); // 不存在 → 默认
-    saveConfig(dir, { overlay: { x: 100, y: 200, opacity: 0.6 }, update: {} });
+    assert.deepEqual(loadConfig(dir), { overlay: { opacity: 0.88 }, update: {}, autoAccept: false }); // 不存在 → 默认
+    saveConfig(dir, { overlay: { x: 100, y: 200, opacity: 0.6 }, update: {}, autoAccept: true });
     const loaded = loadConfig(dir);
     assert.equal(loaded.overlay.x, 100);
     assert.equal(loaded.overlay.opacity, 0.6);

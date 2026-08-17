@@ -702,6 +702,17 @@ body {
   filter: brightness(1.15);
 }
 
+.settings-actions button.primary {
+  background: linear-gradient(180deg, #33508f, #27406e);
+  border-color: #5b7cc4;
+  color: #ffffff;
+}
+
+.settings-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 /* ===== 游戏内浮窗（与面板同构 + 左侧开关按钮，决策 #18） ===== */
 
 .overlay-shell {

@@ -15,9 +15,11 @@ export interface UpdateConfig {
 export interface AppConfig {
   overlay: OverlayConfig;
   update: UpdateConfig;
+  /** 自动接受对局（ReadyCheck 阶段自动点接受） */
+  autoAccept: boolean;
 }
 
-const DEFAULTS: AppConfig = { overlay: { opacity: 0.88 }, update: {} };
+const DEFAULTS: AppConfig = { overlay: { opacity: 0.88 }, update: {}, autoAccept: false };
 
 export function configFilePath(configDir: string): string {
   return join(configDir, 'config.json');
@@ -30,9 +32,10 @@ export function loadConfig(configDir: string): AppConfig {
     return {
       overlay: { ...DEFAULTS.overlay, ...(raw.overlay ?? {}) },
       update: { ...DEFAULTS.update, ...(raw.update ?? {}) },
+      autoAccept: raw.autoAccept ?? DEFAULTS.autoAccept,
     };
   } catch {
-    return { overlay: { ...DEFAULTS.overlay }, update: { ...DEFAULTS.update } };
+    return { overlay: { ...DEFAULTS.overlay }, update: { ...DEFAULTS.update }, autoAccept: DEFAULTS.autoAccept };
   }
 }
 

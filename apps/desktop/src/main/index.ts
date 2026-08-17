@@ -5,7 +5,7 @@ import { clampOpacity, loadConfig, saveConfig, type AppConfig } from './config';
 import { loadDataBundle } from './data-loader';
 import { checkAndUpdateData, type UpdateResult } from './data-updater';
 import { windowVisibilityFor } from './policy';
-import { HEXTECH_ARAM_QUEUE_IDS, type ChampSelectSessionDto, type SessionState } from '@choosehextech/game-session';
+import { HEXTECH_ARAM_QUEUE_IDS, type SessionState } from '@choosehextech/game-session';
 import type { DataBundle } from '@choosehextech/data-core';
 
 let panel: BrowserWindow | null = null;
@@ -19,7 +19,7 @@ let manualOverlayVisible = false;
 let lastOverlayVisible: boolean | null = null;
 let tray: Tray | null = null;
 let isQuitting = false;
-let config: AppConfig = { overlay: { opacity: 0.88 }, update: {} };
+let config: AppConfig = { overlay: { opacity: 0.88 }, update: {}, autoAccept: false };
 const overlayEnabled = true; // M2：游戏内浮窗启用
 
 const OVERLAY_TOGGLE_HOTKEY = 'Ctrl+Shift+H';
@@ -299,6 +299,10 @@ function applyWindowPolicy(): void {
 }
 
 function handleSessionState(state: SessionState | null): void {
+  // 自动接受对局：进入 ReadyCheck 阶段时自动点接受（只触发一次）
+  if (config.autoAccept && state?.phase === 'ReadyCheck' && lastState?.phase !== 'ReadyCheck') {
+    void acceptReadyCheck();
+  }
   // 游戏开始/结束不再自动隐藏或恢复主面板（保持用户当前状态，不做任何操作）
   lastState = state;
   applyWindowPolicy();
@@ -309,43 +313,39 @@ function handleSessionState(state: SessionState | null): void {
   }
 }
 
+async function acceptReadyCheck(): Promise<void> {
+  if (!session) return;
+  try {
+    await session.requestLcu('POST', '/lol-lobby/v2/ready-check/accept');
+    console.log('[auto-accept] ready check accepted');
+  } catch (error) {
+    console.warn('[auto-accept] failed:', error instanceof Error ? error.message : String(error));
+  }
+}
+
 function registerIpc(): void {
   ipcMain.handle('bundle:get', () => loadedBundle);
   ipcMain.handle('state:get', () => lastState);
-  // 抢选：找到己方 pick 动作 → 填入英雄 → 锁定
+  ipcMain.handle('config:get', () => config);
+  ipcMain.handle('config:save', (_event, next: Partial<AppConfig>) => {
+    config = {
+      overlay: { ...config.overlay, ...(next.overlay ?? {}) },
+      update: { ...config.update, ...(next.update ?? {}) },
+      autoAccept: next.autoAccept ?? config.autoAccept,
+    };
+    saveConfig(join(app.getPath('appData'), 'ChooseHextech'), config);
+    return config;
+  });
+  // 抢选（备选池换人）：ARAM 专用接口，PATCH pick 动作对已自动锁定的初始英雄无效
   ipcMain.handle('champselect:pick-lock', async (_event, championId: number) => {
     if (!session) {
       console.warn('[pick] client not connected');
       return { ok: false, message: '未连接客户端' };
     }
     try {
-      const dto = await session.requestLcu<ChampSelectSessionDto>('GET', '/lol-champ-select/v1/session');
-      const allActions = (dto.actions ?? []).flat();
-      console.log('[pick] session: localPlayerCellId=' + dto.localPlayerCellId + ' actions=' + JSON.stringify(allActions));
-      // 1) 己方未完成的 pick 动作
-      let action = allActions.find(
-        (a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false && !a.completed,
-      );
-      // 2) 兜底：己方任何 pick 动作（可能已完成）
-      if (!action) {
-        action = allActions.find((a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false);
-      }
-      // 3) 兜底：己方未完成的任意动作
-      if (!action) {
-        action = allActions.find((a) => a.isAllyAction !== false && !a.completed && a.id !== undefined);
-      }
-      if (!action || action.id === undefined) {
-        console.warn('[pick] no action found, localPlayerCellId=' + dto.localPlayerCellId);
-        return { ok: false, message: '未找到可操作的选人动作' };
-      }
-      // 已锁定也能换：PATCH 改成目标英雄（completed:false 解除锁定）后再重新锁定
-      console.log(
-        '[pick] action id=' + action.id + ' completed=' + action.completed + ', target championId=' + championId,
-      );
-      await session.requestLcu('PATCH', '/lol-champ-select/v1/session/actions/' + action.id, { championId, completed: false });
-      console.log('[pick] PATCH ok');
-      await session.requestLcu('POST', '/lol-champ-select/v1/session/actions/' + action.id + '/complete');
-      console.log('[pick] lock ok');
+      console.log('[pick] bench swap target championId=' + championId);
+      await session.requestLcu('POST', '/lol-champ-select/v1/session/bench/swap/' + championId);
+      console.log('[pick] bench swap ok');
       return { ok: true, message: '已抢选并锁定' };
     } catch (error) {
       console.error('[pick] failed:', error);
