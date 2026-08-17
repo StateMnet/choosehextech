@@ -120,12 +120,12 @@ async function performDataUpdate(manifestUrl: string): Promise<UpdateResult> {
 async function checkDataUpdate(): Promise<void> {
   const manifestUrl = config.update.dataManifestUrl;
   if (!manifestUrl) {
-    console.log('[ChooseHextech] 未配置数据更新源（config.update.dataManifestUrl），跳过在线更新');
+    console.log('[ChooseHextech] no data update source configured (config.update.dataManifestUrl), skipping online update');
     return;
   }
   try {
     const result = await performDataUpdate(manifestUrl);
-    console.log('[ChooseHextech] 数据更新检查：' + result.message);
+    console.log('[ChooseHextech] data update check: ' + result.message);
   } catch (error) {
     console.warn(
       '[ChooseHextech] 数据更新失败（保持现有数据）：',
@@ -268,8 +268,8 @@ function registerHotkeys(): void {
     manualOverlayVisible = !manualOverlayVisible;
     applyWindowPolicy();
   });
-  if (!registered) console.warn('[ChooseHextech] hotkey register failed (可能被占用): ' + OVERLAY_TOGGLE_HOTKEY);
-  console.log('[ChooseHextech] hotkey: ' + OVERLAY_TOGGLE_HOTKEY + ' 完全隐藏/显示浮窗');
+  if (!registered) console.warn('[ChooseHextech] hotkey register failed (maybe in use): ' + OVERLAY_TOGGLE_HOTKEY);
+  console.log('[ChooseHextech] hotkey: ' + OVERLAY_TOGGLE_HOTKEY + ' toggle overlay show/hide');
 }
 
 function applyWindowPolicy(): void {
@@ -312,33 +312,43 @@ function handleSessionState(state: SessionState | null): void {
 function registerIpc(): void {
   ipcMain.handle('bundle:get', () => loadedBundle);
   ipcMain.handle('state:get', () => lastState);
-  // 抢选：找到己方未完成的 pick 动作 → 填入英雄 → 锁定
+  // 抢选：找到己方 pick 动作 → 填入英雄 → 锁定
   ipcMain.handle('champselect:pick-lock', async (_event, championId: number) => {
     if (!session) {
-      console.warn('[pick] 未连接客户端');
+      console.warn('[pick] client not connected');
       return { ok: false, message: '未连接客户端' };
     }
     try {
       const dto = await session.requestLcu<ChampSelectSessionDto>('GET', '/lol-champ-select/v1/session');
-      console.log(
-        '[pick] session: localPlayerCellId=' + dto.localPlayerCellId +
-        ' actions=' + JSON.stringify(dto.actions),
+      const allActions = (dto.actions ?? []).flat();
+      console.log('[pick] session: localPlayerCellId=' + dto.localPlayerCellId + ' actions=' + JSON.stringify(allActions));
+      // 1) 己方未完成的 pick 动作
+      let action = allActions.find(
+        (a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false && !a.completed,
       );
-      const action = dto.actions
-        .flat()
-        .find((a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false && !a.completed);
+      // 2) 兜底：己方任何 pick 动作（可能已完成）
+      if (!action) {
+        action = allActions.find((a) => a.type === 'pick' && a.actorCellId === dto.localPlayerCellId && a.isAllyAction !== false);
+      }
+      // 3) 兜底：己方未完成的任意动作
+      if (!action) {
+        action = allActions.find((a) => a.isAllyAction !== false && !a.completed && a.id !== undefined);
+      }
       if (!action || action.id === undefined) {
-        console.warn('[pick] 未找到可操作的 pick 动作');
+        console.warn('[pick] no action found, localPlayerCellId=' + dto.localPlayerCellId);
         return { ok: false, message: '未找到可操作的选人动作' };
       }
-      console.log('[pick] 找到动作 id=' + action.id + '，目标 championId=' + championId);
+      // 已锁定也能换：PATCH 改成目标英雄（completed:false 解除锁定）后再重新锁定
+      console.log(
+        '[pick] action id=' + action.id + ' completed=' + action.completed + ', target championId=' + championId,
+      );
       await session.requestLcu('PATCH', '/lol-champ-select/v1/session/actions/' + action.id, { championId, completed: false });
-      console.log('[pick] PATCH 成功');
+      console.log('[pick] PATCH ok');
       await session.requestLcu('POST', '/lol-champ-select/v1/session/actions/' + action.id + '/complete');
-      console.log('[pick] 锁定成功');
+      console.log('[pick] lock ok');
       return { ok: true, message: '已抢选并锁定' };
     } catch (error) {
-      console.error('[pick] 失败:', error);
+      console.error('[pick] failed:', error);
       return { ok: false, message: error instanceof Error ? error.message : String(error) };
     }
   });

@@ -72,11 +72,10 @@ export default function App({ variant = 'panel' }: AppProps) {
     return autoChampion;
   }, [query, results, autoChampion]);
 
-  // 可抢选池：自己英雄 + 备选池（队友的英雄不可抢选）
+  // 可抢选池：仅备选池英雄（自己/队友的英雄都不显示抢选按钮）
   const pickableIds = useMemo(() => {
     const ids = new Set<number>();
     if (!session) return ids;
-    if (session.myChampionId !== null && session.myChampionId > 0) ids.add(session.myChampionId);
     for (const id of session.benchChampionIds) ids.add(id);
     return ids;
   }, [session]);

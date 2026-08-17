@@ -27,10 +27,24 @@ try {
   if (phase === 'ChampSelect') {
     const session = await client.request<{
       localPlayerCellId?: number;
+      queueId?: number | string;
+      isCustomGame?: boolean;
+      actions?: {
+        id?: number;
+        type: string;
+        actorCellId: number;
+        completed: boolean;
+        isAllyAction?: boolean;
+        isInProgress?: boolean;
+        championId?: number;
+      }[][];
       myTeam?: { cellId: number; championId: number }[];
       bench?: { championId: number }[];
     }>('GET', '/lol-champ-select/v1/session');
     console.log('localPlayerCellId:', session.localPlayerCellId);
+    console.log('session.queueId:', session.queueId ?? '(none)');
+    console.log('session.isCustomGame:', session.isCustomGame);
+    console.log('actions:', JSON.stringify(session.actions ?? []));
     console.log('myTeam:', JSON.stringify(session.myTeam?.map((m) => ({ cellId: m.cellId, championId: m.championId }))));
     console.log('bench:', JSON.stringify(session.bench?.map((b) => b.championId)));
   }

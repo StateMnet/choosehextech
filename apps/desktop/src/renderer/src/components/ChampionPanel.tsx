@@ -116,7 +116,7 @@ export default function ChampionPanel({
       setPickState(result.ok ? 'done' : 'error');
       setPickMessage(result.message);
     } catch (error) {
-      console.error('[pick] 调用失败:', error);
+      console.error('[pick] call failed:', error);
       setPickState('error');
       setPickMessage(error instanceof Error ? error.message : String(error));
     }
