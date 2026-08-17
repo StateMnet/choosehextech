@@ -120,15 +120,15 @@ await check('select：默认选中第一个套路', () => {
   assert.equal(defaultBuildName([]), '');
 });
 
-await check('select：关键词搜索英雄名与套路名', () => {
+await check('select：关键词搜索仅匹配英雄名（不匹配套路名）', () => {
   const bundle = loadFixtureBundle();
   const byXin = searchChampions(bundle, '希');
   assert.ok(byXin.length >= 3, '希维尔/艾希/希瓦娜等，实际 ' + byXin.length);
   assert.ok(byXin.some((champion) => champion.championId === 'Sivir'));
   assert.ok(byXin.some((champion) => champion.championId === 'Ashe'));
   assert.ok(searchChampions(bundle, '').length >= 100);
-  const byBuild = searchChampions(bundle, '暴击');
-  assert.ok(byBuild.some((champion) => champion.championId === 'Sivir'));
+  // 套路名不再参与搜索：用套路关键词搜应无结果
+  assert.equal(searchChampions(bundle, '暴击').length, 0);
 });
 
 // ---- 数据加载 ----

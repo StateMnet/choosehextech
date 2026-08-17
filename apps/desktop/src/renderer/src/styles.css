@@ -248,6 +248,17 @@ body {
   border-color: var(--accent-3);
 }
 
+/* 备选池英雄可直接抢选：hover 高亮提示 */
+.quick-champ.bench-pickable img {
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quick-champ.bench-pickable:hover img {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(255, 215, 110, 0.45);
+  transform: scale(1.06);
+}
+
 /* ===== 搜索框 ===== */
 .search-row {
   position: relative;
@@ -358,54 +369,32 @@ body {
   color: var(--text-3);
 }
 
-/* ===== 抢选按钮（选人阶段，头像行最右侧） ===== */
-.pick-btn {
-  margin-left: auto;
-  flex-shrink: 0;
-  background: linear-gradient(180deg, #f0a93c, #d08a24);
-  border: 1px solid #f2b957;
-  color: #1a1306;
-  font-weight: 700;
-  border-radius: 8px;
+/* ===== 抢选结果浮层提示 ===== */
+.pick-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 56px;
+  transform: translateX(-50%);
+  z-index: 90;
+  background: rgba(13, 16, 32, 0.95);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
   padding: 6px 16px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  font-size: 12px;
+  color: var(--text);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  white-space: nowrap;
 }
 
-.pick-btn:hover {
-  filter: brightness(1.12);
-}
-
-.pick-btn:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-.pick-btn.done {
-  background: linear-gradient(180deg, #4bd0a1, #2ba37c);
+.pick-toast.ok {
   border-color: #5fe0b5;
-  color: #06281c;
-}
-
-.pick-btn.error {
-  background: linear-gradient(180deg, #e05a5a, #b33a3a);
-  border-color: #ef8080;
-  color: #ffffff;
-}
-
-.pick-feedback {
-  font-size: 11px;
-  color: var(--text-3);
-  margin-top: -4px;
-}
-
-.pick-feedback.error {
-  color: var(--danger);
-}
-
-.pick-feedback.done {
   color: var(--accent-2);
+}
+
+.pick-toast.error {
+  border-color: #ef8080;
+  color: var(--danger);
 }
 
 /* ===== 套路标签 ===== */

@@ -60,12 +60,9 @@ export function buildQuickChampionList(bundle: DataBundle, state: SessionState):
   return result;
 }
 
-/** 关键词搜索（英雄译名与套路名均参与匹配）；空关键词返回全部英雄 */
+/** 关键词搜索（仅匹配英雄译名；空关键词返回全部英雄） */
 export function searchChampions(bundle: DataBundle, query: string): ChampionEntry[] {
   const trimmed = query.trim();
   if (trimmed === '') return bundle.champions;
-  return bundle.champions.filter((champion) => {
-    if (champion.nameZh.includes(trimmed)) return true;
-    return champion.builds.some((build) => build.name.includes(trimmed));
-  });
+  return bundle.champions.filter((champion) => champion.nameZh.includes(trimmed));
 }

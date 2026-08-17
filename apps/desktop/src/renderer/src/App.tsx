@@ -31,7 +31,9 @@ export default function App({ variant = 'panel' }: AppProps) {
   const [query, setQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState('');
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [pickFeedback, setPickFeedback] = useState<{ ok: boolean; message: string } | null>(null);
   const prevMyChampionId = useRef<number | null | undefined>(undefined);
+  const pickFeedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -72,15 +74,16 @@ export default function App({ variant = 'panel' }: AppProps) {
     return autoChampion;
   }, [query, results, autoChampion]);
 
-  // 可抢选池：仅备选池英雄（自己/队友的英雄都不显示抢选按钮）
-  const pickableIds = useMemo(() => {
-    const ids = new Set<number>();
-    if (!session) return ids;
-    for (const id of session.benchChampionIds) ids.add(id);
-    return ids;
-  }, [session]);
-  const canPickDisplay =
-    displayChampion?.numericId !== undefined && pickableIds.has(displayChampion.numericId);
+  // 点击备选池英雄：直接抢选（交换并锁定）；成功不打扰（英雄已切换可见），失败才提示
+  const handleBenchPick = (championId: number): void => {
+    void window.choosehextech.pickAndLock(championId).then((result) => {
+      if (!result.ok) {
+        setPickFeedback(result);
+        if (pickFeedbackTimer.current) clearTimeout(pickFeedbackTimer.current);
+        pickFeedbackTimer.current = setTimeout(() => setPickFeedback(null), 2500);
+      }
+    });
+  };
 
   // 己方英雄切换（重roll / 交换）：清空搜索词，让面板跟随显示「自己英雄」
   useEffect(() => {
@@ -130,17 +133,22 @@ export default function App({ variant = 'panel' }: AppProps) {
           </div>
         </header>
 
-        {phase === 'ChampSelect' && <div className="hint">海克斯强化在游戏内选择，先看推荐做好规划</div>}
+        {phase === 'ChampSelect' && <div className="hint">在此面板中点击备选区英雄可快速抢选英雄</div>}
 
         {quickChampions.length > 0 && (
-          <ChampionQuickBar champions={quickChampions} championIcons={bundle?.championIcons} onSelect={(nameZh) => setQuery(nameZh)} />
+          <ChampionQuickBar
+            champions={quickChampions}
+            championIcons={bundle?.championIcons}
+            onSelect={(nameZh) => setQuery(nameZh)}
+            onBenchPick={phase === 'ChampSelect' ? handleBenchPick : undefined}
+          />
         )}
 
         <div className="search-row">
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="搜索英雄 / 套路名"
+            placeholder="搜索英雄"
           />
           {query !== '' && (
             <button className="clear" onClick={() => setQuery('')}>
@@ -177,9 +185,11 @@ export default function App({ variant = 'panel' }: AppProps) {
             itemIcons={bundle.itemIcons}
             selectedBuild={selectedBuild}
             onSelectBuild={setSelectedBuild}
-            pickEnabled={phase === 'ChampSelect' && canPickDisplay}
-            onPick={(id) => window.choosehextech.pickAndLock(id)}
           />
+        )}
+
+        {pickFeedback && (
+          <div className={'pick-toast ' + (pickFeedback.ok ? 'ok' : 'error')}>{pickFeedback.message}</div>
         )}
 
         {variant === 'overlay' && (

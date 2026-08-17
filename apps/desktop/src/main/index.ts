@@ -166,6 +166,7 @@ function createPanel(): void {
     show: false,
     alwaysOnTop: true,
     autoHideMenuBar: true,
+    icon: join(__dirname, '../../resources/icon.png'),
     backgroundColor: '#0f1220',
     title: 'ChooseHextech 海克斯大乱斗助手',
     webPreferences: {
@@ -205,6 +206,7 @@ function createOverlay(): void {
     resizable: false,
     hasShadow: false,
     focusable: false,
+    icon: join(__dirname, '../../resources/icon.png'),
     backgroundColor: '#00000000',
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

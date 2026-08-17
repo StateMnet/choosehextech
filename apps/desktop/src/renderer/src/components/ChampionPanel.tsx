@@ -1,11 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import type { Build, ChampionEntry } from '@choosehextech/data-core';
 import { augmentPlaceholderIcon, championPlaceholderIcon, itemPlaceholderIcon, resolveAugmentIcon, resolveChampionIcon, resolveItemIcon } from '../lib/icons';
-
-export interface PickResult {
-  ok: boolean;
-  message: string;
-}
 
 interface Props {
   champion: ChampionEntry;
@@ -14,10 +8,6 @@ interface Props {
   championIcons?: Record<string, string>;
   itemIcons?: Record<string, string>;
   onSelectBuild: (buildName: string) => void;
-  /** 选人阶段显示「抢选」按钮 */
-  pickEnabled?: boolean;
-  /** 抢选回调（返回结果用于按钮状态与提示） */
-  onPick?: (championId: number) => Promise<PickResult>;
 }
 
 function BuildSections({ build, augmentIcons, itemIcons }: { build: Build; augmentIcons?: Record<string, string>; itemIcons?: Record<string, string> }) {
@@ -75,58 +65,8 @@ function BuildSections({ build, augmentIcons, itemIcons }: { build: Build; augme
   );
 }
 
-export default function ChampionPanel({
-  champion,
-  selectedBuild,
-  augmentIcons,
-  championIcons,
-  itemIcons,
-  onSelectBuild,
-  pickEnabled = false,
-  onPick,
-}: Props) {
+export default function ChampionPanel({ champion, selectedBuild, augmentIcons, championIcons, itemIcons, onSelectBuild }: Props) {
   const build = champion.builds.find((item) => item.name === selectedBuild) ?? champion.builds[0];
-  const [pickState, setPickState] = useState<'idle' | 'picking' | 'done' | 'error'>('idle');
-  const [pickMessage, setPickMessage] = useState('');
-  const pickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // 切换英雄时重置抢选状态与提示
-  useEffect(() => {
-    setPickState('idle');
-    setPickMessage('');
-  }, [champion.championId]);
-
-  useEffect(() => {
-    return () => {
-      if (pickTimer.current) clearTimeout(pickTimer.current);
-    };
-  }, []);
-
-  const handlePick = async (): Promise<void> => {
-    if (!onPick) return;
-    if (champion.numericId === undefined) {
-      setPickState('error');
-      setPickMessage('该英雄缺少数字 ID，无法抢选');
-      return;
-    }
-    setPickState('picking');
-    setPickMessage('');
-    try {
-      const result = await onPick(champion.numericId);
-      setPickState(result.ok ? 'done' : 'error');
-      setPickMessage(result.message);
-    } catch (error) {
-      console.error('[pick] call failed:', error);
-      setPickState('error');
-      setPickMessage(error instanceof Error ? error.message : String(error));
-    }
-    if (pickTimer.current) clearTimeout(pickTimer.current);
-    pickTimer.current = setTimeout(() => {
-      setPickState('idle');
-      setPickMessage('');
-    }, 2500);
-  };
-
   return (
     <div className="panel">
       <div className="champion-head">
@@ -140,18 +80,7 @@ export default function ChampionPanel({
         />
         <span className="champion-name">{champion.nameZh}</span>
         <span className="champion-id">{champion.championId}</span>
-        {pickEnabled && onPick && (
-          <button
-            className={'pick-btn ' + pickState}
-            onClick={() => void handlePick()}
-            disabled={pickState === 'picking'}
-            title="立即选择并锁定该英雄"
-          >
-            {pickState === 'picking' ? '抢选中…' : pickState === 'done' ? '已锁定' : '抢选'}
-          </button>
-        )}
       </div>
-      {pickMessage !== '' && <div className={'pick-feedback ' + pickState}>{pickMessage}</div>}
       <div className="build-tabs">
         {champion.builds.map((item) => (
           <button
