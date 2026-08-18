@@ -190,13 +190,26 @@ body {
   flex-shrink: 0;
 }
 
-/* ===== 快捷英雄栏 ===== */
-.quick-bar {
+/* ===== 快捷英雄栏（己方一行 + 备选池一行） ===== */
+.quick-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.quick-label {
+  font-size: 11px;
+  color: var(--accent-3);
+  padding: 2px 2px 0;
+  user-select: none;
+}
+
+.quick-row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px 6px;
-  padding: 6px 2px;
-  flex-shrink: 0;
+  padding: 2px;
 }
 
 .quick-champ {
