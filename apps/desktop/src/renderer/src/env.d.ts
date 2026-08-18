@@ -12,6 +12,7 @@ export interface ChooseHextechApi {
   saveConfig(config: Partial<AppConfig>): Promise<AppConfig>;
   setOverlayInteractive(enabled: boolean): void;
   setOverlayMode(mode: 'collapsed' | 'expanded'): void;
+  dragOverlay(dx: number, dy: number): void;
   onResetOverlayMode(callback: () => void): () => void;
 }
 

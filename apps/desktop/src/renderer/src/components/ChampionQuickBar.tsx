@@ -45,17 +45,20 @@ export default function ChampionQuickBar({ champions, championIcons, onSelect, o
   return (
     <div className="quick-bar-wrap">
       {ally.length > 0 && (
-        <div className="quick-row">
-          {ally.map((champion) => (
-            <QuickChampButton
-              key={champion.championId}
-              champion={champion}
-              championIcons={championIcons}
-              title={champion.nameZh}
-              onClick={() => onSelect(champion.nameZh)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="quick-label">己方队伍（已选）</div>
+          <div className="quick-row">
+            {ally.map((champion) => (
+              <QuickChampButton
+                key={champion.championId}
+                champion={champion}
+                championIcons={championIcons}
+                title={champion.nameZh}
+                onClick={() => onSelect(champion.nameZh)}
+              />
+            ))}
+          </div>
+        </>
       )}
       {bench.length > 0 && (
         <>

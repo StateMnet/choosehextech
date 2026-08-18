@@ -19,6 +19,7 @@ let manualOverlayVisible = false;
 let lastOverlayVisible: boolean | null = null;
 let tray: Tray | null = null;
 let isQuitting = false;
+let overlayMode: 'collapsed' | 'expanded' = 'collapsed'; // 浮窗当前形态（用于分开记忆按钮/面板位置）
 let config: AppConfig = { overlay: { opacity: 0.88 }, update: {}, autoAccept: false };
 const overlayEnabled = true; // M2：游戏内浮窗启用
 
@@ -190,7 +191,8 @@ function createPanel(): void {
 function createOverlay(): void {
   const workArea = screen.getPrimaryDisplay().workArea;
   const position = {
-    x: config.overlay.x ?? 8,
+    // 默认：收起按钮停靠屏幕右侧、垂直居中（用户可拖动，展开/收起时按规则归位）
+    x: config.overlay.x ?? workArea.x + workArea.width - OVERLAY_COLLAPSED_SIZE.width - 8,
     y: config.overlay.y ?? Math.round(workArea.y + (workArea.height - OVERLAY_COLLAPSED_SIZE.height) / 2),
   };
   overlay = new BrowserWindow({
@@ -218,8 +220,14 @@ function createOverlay(): void {
   overlay.on('moved', () => {
     if (!overlay || isQuitting) return;
     const [x, y] = overlay.getPosition();
-    config.overlay.x = x;
-    config.overlay.y = y;
+    // 按当前形态分别记忆：展开面板记 panelX/Y，收起按钮记 x/y
+    if (overlayMode === 'expanded') {
+      config.overlay.panelX = x;
+      config.overlay.panelY = y;
+    } else {
+      config.overlay.x = x;
+      config.overlay.y = y;
+    }
     saveConfig(join(app.getPath('appData'), 'ChooseHextech'), config);
   });
   overlay.on('closed', () => {
@@ -359,18 +367,38 @@ function registerIpc(): void {
     overlay.setIgnoreMouseEvents(!enabled, { forward: true });
     overlay.setFocusable(Boolean(enabled));
   });
-  ipcMain.on('overlay:set-mode', (_event, mode: string) => {
+  ipcMain.on('overlay:drag-move', (_event, dx: number, dy: number) => {
     if (!overlay || overlay.isDestroyed()) return;
     const [x, y] = overlay.getPosition();
+    overlay.setPosition(x + dx, y + dy); // 移动会触发 moved 事件，自动记忆位置
+  });
+  ipcMain.on('overlay:set-mode', (_event, mode: string) => {
+    if (!overlay || overlay.isDestroyed()) return;
+    overlayMode = mode === 'expanded' ? 'expanded' : 'collapsed';
     const workArea = screen.getDisplayMatching(overlay.getBounds()).workArea;
-    const size = mode === 'expanded' ? OVERLAY_EXPANDED_SIZE : OVERLAY_COLLAPSED_SIZE;
-    const clampedX = Math.min(Math.max(workArea.x, x), workArea.x + workArea.width - size.width);
-    const clampedY = Math.min(Math.max(workArea.y, y), workArea.y + workArea.height - size.height);
-    overlay.setBounds({ x: clampedX, y: clampedY, ...size });
     if (mode === 'expanded') {
+      // 展开面板：使用记忆位置，默认屏幕右侧顶部 70px
+      const size = OVERLAY_EXPANDED_SIZE;
+      const x = Math.min(
+        Math.max(workArea.x, config.overlay.panelX ?? workArea.x + workArea.width - size.width - 8),
+        workArea.x + workArea.width - size.width,
+      );
+      const y = Math.min(Math.max(workArea.y, config.overlay.panelY ?? workArea.y + 70), workArea.y + workArea.height - size.height);
+      overlay.setBounds({ x, y, ...size });
       overlay.setIgnoreMouseEvents(true, { forward: true }); // 展开：默认穿透，悬停可交互
       overlay.setFocusable(false);
     } else {
+      // 收起：按钮回到记忆位置，默认停靠屏幕右侧垂直居中
+      const size = OVERLAY_COLLAPSED_SIZE;
+      const x = Math.min(
+        Math.max(workArea.x, config.overlay.x ?? workArea.x + workArea.width - size.width - 8),
+        workArea.x + workArea.width - size.width,
+      );
+      const y = Math.min(
+        Math.max(workArea.y, config.overlay.y ?? Math.round(workArea.y + (workArea.height - size.height) / 2)),
+        workArea.y + workArea.height - size.height,
+      );
+      overlay.setBounds({ x, y, ...size });
       overlay.setIgnoreMouseEvents(false, { forward: true }); // 收起：按钮可点击
       overlay.setFocusable(false);
     }

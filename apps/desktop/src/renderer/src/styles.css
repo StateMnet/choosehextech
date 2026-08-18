@@ -180,16 +180,6 @@ body {
   color: var(--accent-3);
 }
 
-/* ===== 提示条 ===== */
-.hint {
-  background: linear-gradient(90deg, rgba(42, 58, 106, 0.5), rgba(30, 42, 78, 0.3));
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  color: #b3c8f5;
-  flex-shrink: 0;
-}
-
 /* ===== 快捷英雄栏（己方一行 + 备选池一行） ===== */
 .quick-bar-wrap {
   display: flex;
@@ -510,43 +500,45 @@ body {
 }
 
 .chip-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
-/* ===== 装备列表 ===== */
+/* ===== 装备列表（纯图标，一行 6 个，换行靠左） ===== */
 .items {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 5px;
 }
 
 .items li {
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  line-height: 1.6;
-  padding: 2px 4px;
-  border-radius: 6px;
-  transition: background 0.12s ease;
+  justify-content: center;
+  border-radius: 10px;
+  transition: background 0.12s ease, transform 0.12s ease;
 }
 
 .items li:hover {
   background: rgba(38, 48, 88, 0.4);
+  transform: translateY(-1px);
 }
 
 .item-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   flex-shrink: 0;
   background: var(--bg-2);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 /* ===== 对局技巧 ===== */
@@ -727,7 +719,7 @@ body {
   background: radial-gradient(130% 100% at 20% 0%, #1b2347 0%, #10142a 60%, #0c0f1e 100%);
 }
 
-/* 展开态顶部表头：固定不动，内容区独立滚动（始终可点击「收回」） */
+/* 展开态顶部表头：固定不动，内容区独立滚动（整条可拖动；收回按钮可点击） */
 .overlay-header {
   display: flex;
   align-items: center;
@@ -738,6 +730,8 @@ body {
   border-bottom: 1px solid var(--border);
   background: rgba(13, 16, 32, 0.72);
   backdrop-filter: blur(4px);
+  -webkit-app-region: drag;
+  user-select: none;
 }
 
 .overlay-title {
@@ -753,7 +747,6 @@ body {
   line-height: 1.3;
   padding: 0 6px;
   user-select: none;
-  -webkit-app-region: no-drag;
 }
 
 .overlay-body {

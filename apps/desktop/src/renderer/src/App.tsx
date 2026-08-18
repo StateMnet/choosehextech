@@ -133,8 +133,6 @@ export default function App({ variant = 'panel' }: AppProps) {
           </div>
         </header>
 
-        {phase === 'ChampSelect' && <div className="hint">在此面板中点击备选区英雄可快速抢选英雄</div>}
-
         {quickChampions.length > 0 && (
           <ChampionQuickBar
             champions={quickChampions}

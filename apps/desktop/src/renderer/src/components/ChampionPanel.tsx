@@ -36,19 +36,16 @@ function BuildSections({ build, augmentIcons, itemIcons }: { build: Build; augme
       <section className="card">
         <h3>装备推荐</h3>
         <ol className="items">
-          {build.items.map((name, index) => (
-            <li key={name}>
+          {build.items.map((name) => (
+            <li key={name} title={name}>
               <img
                 className="item-icon"
                 src={resolveItemIcon(name, itemIcons)}
-                alt=""
+                alt={name}
                 onError={(event) => {
                   event.currentTarget.src = itemPlaceholderIcon(name);
                 }}
               />
-              <span>
-                {index + 1}. {name}
-              </span>
             </li>
           ))}
         </ol>
@@ -67,6 +64,7 @@ function BuildSections({ build, augmentIcons, itemIcons }: { build: Build; augme
 
 export default function ChampionPanel({ champion, selectedBuild, augmentIcons, championIcons, itemIcons, onSelectBuild }: Props) {
   const build = champion.builds.find((item) => item.name === selectedBuild) ?? champion.builds[0];
+
   return (
     <div className="panel">
       <div className="champion-head">

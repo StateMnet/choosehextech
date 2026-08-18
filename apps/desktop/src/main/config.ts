@@ -4,6 +4,9 @@ import { join } from 'node:path';
 export interface OverlayConfig {
   x?: number;
   y?: number;
+  /** 展开面板的位置（与收起按钮分开记忆） */
+  panelX?: number;
+  panelY?: number;
   opacity?: number;
 }
 

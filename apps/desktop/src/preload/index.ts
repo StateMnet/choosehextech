@@ -40,6 +40,9 @@ const api = {
   setOverlayMode(mode: 'collapsed' | 'expanded'): void {
     ipcRenderer.send('overlay:set-mode', mode);
   },
+  dragOverlay(dx: number, dy: number): void {
+    ipcRenderer.send('overlay:drag-move', dx, dy);
+  },
   onResetOverlayMode(callback: () => void): () => void {
     return onChannel('overlay:reset-mode', callback);
   },
